@@ -68,14 +68,14 @@ export default function Tooltip({
         ref={triggerRef}
         onMouseEnter={() => setIsVisible(true)}
         onMouseLeave={() => setIsVisible(false)}
-        className="inline-flex"
       >
         {children}
       </div>
+
       <div
         ref={tooltipRef}
         className={`
-          z-50 transition-opacity duration-200
+          absolute z-50 transition-opacity duration-200
           bg-white dark:bg-gray-900
           text-gray-700 dark:text-gray-100 text-sm
           rounded-lg p-3 shadow-xl
