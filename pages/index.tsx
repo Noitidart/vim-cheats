@@ -1,3 +1,4 @@
+import Tooltip from '@/components/Tooltip';
 import clsx from 'clsx';
 import { Inter, Source_Code_Pro } from 'next/font/google';
 
@@ -412,47 +413,47 @@ export default function Home() {
             key={sectionIndex}
             className="bg-white dark:bg-gray-800 rounded-lg p-3 shadow-sm dark:shadow-none"
           >
-            <div className={section.tooltip ? 'group relative' : ''}>
-              <h2
-                className={clsx(
-                  'text-base font-bold mb-2 flex items-center justify-between',
-                  section.colorClass
-                )}
-              >
-                {section.title}
-                {section.tooltip && (
-                  <svg
-                    className="w-4 h-4 text-blue-600 dark:text-blue-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                )}
-              </h2>
-              {section.tooltip && (
-                <div
-                  className={`
-                  fixed z-50 invisible group-hover:visible            /* positioning & visibility */
-                  bg-white dark:bg-gray-900                       /* background colors */
-                  text-gray-700 dark:text-gray-100 text-sm        /* text color & size */
-                  rounded-lg p-4 shadow-xl                            /* shape, padding & shadow */
-                  border border-gray-200 dark:border-gray-700     /* border styling */
-                  max-w-[90vw] md:max-w-md                            /* max width constraints */
-                  lg:absolute lg:w-80 lg:top-full lg:mt-2 lg:left-0   /* large screen: absolute below trigger */
-                  left-[5vw] top-[30vh]                               /* mobile: fixed position */
-                  md:absolute md:top-full md:mt-2 md:left-0           /* medium screen: absolute below trigger */
-                `}
+            <div>
+              {section.tooltip ? (
+                <Tooltip
+                  content={
+                    <div className="p-1">
+                      {renderTooltipContent(section.tooltip)}
+                    </div>
+                  }
                 >
-                  {renderTooltipContent(section.tooltip)}
-                </div>
+                  <h2
+                    className={clsx(
+                      'text-base font-bold mb-2 flex items-center justify-between',
+                      section.colorClass
+                    )}
+                  >
+                    {section.title}
+                    <svg
+                      className="w-4 h-4 text-blue-600 dark:text-blue-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </h2>
+                </Tooltip>
+              ) : (
+                <h2
+                  className={clsx(
+                    'text-base font-bold mb-2',
+                    section.colorClass
+                  )}
+                >
+                  {section.title}
+                </h2>
               )}
             </div>
             <div className="space-y-1">
@@ -476,54 +477,50 @@ export default function Home() {
                   );
                 }
 
+                if (tooltip) {
+                  return (
+                    <div
+                      key={cmdIndex}
+                      className="flex justify-between items-start gap-1"
+                    >
+                      <Tooltip content={renderTooltipContent(tooltip)}>
+                        <span
+                          className={`font-mono flex items-center gap-1 ${commandColorClass}`}
+                          style={{ whiteSpace: 'nowrap' }}
+                        >
+                          {command}
+                          <svg
+                            className="w-4 h-4 text-blue-600 dark:text-blue-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                        </span>
+                      </Tooltip>
+                      <span className="text-right">{description}</span>
+                    </div>
+                  );
+                }
+
                 return (
                   <div
                     key={cmdIndex}
-                    className={clsx(
-                      'flex justify-between items-start gap-1',
-                      tooltip && 'group relative'
-                    )}
+                    className="flex justify-between items-start gap-1"
                   >
                     <span
                       className={`font-mono flex items-center gap-1 ${commandColorClass}`}
-                      style={tooltip ? { whiteSpace: 'nowrap' } : {}}
                     >
                       {command}
-                      {tooltip && (
-                        <svg
-                          className="w-4 h-4 text-blue-600 dark:text-blue-400"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                          />
-                        </svg>
-                      )}
                     </span>
                     <span className="text-right">{description}</span>
-                    {tooltip && (
-                      <div
-                        className={`
-                        fixed z-50 invisible group-hover:visible        /* positioning & visibility */
-                        bg-white dark:bg-gray-900                       /* background colors */
-                        text-gray-700 dark:text-gray-100 text-sm       /* text color & size */
-                        rounded-lg p-3 shadow-xl                        /* shape, padding & shadow */
-                        border border-gray-200 dark:border-gray-700    /* border styling */
-                        max-w-[90vw] md:max-w-sm                       /* max width constraints */
-                        lg:absolute lg:top-full lg:mt-1 lg:left-0 lg:w-64  /* large screen: absolute below trigger */
-                        left-[5vw] top-[40vh]                           /* mobile: fixed position */
-                        md:absolute md:top-full md:mt-1 md:left-0 md:w-64  /* medium screen: absolute below trigger */
-                      `}
-                      >
-                        {renderTooltipContent(tooltip)}
-                      </div>
-                    )}
                   </div>
                 );
               })}
