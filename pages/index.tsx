@@ -356,9 +356,11 @@ function renderTooltipContent(items: TooltipItem[]) {
     return (
       <p
         key={index}
-        className={`${index < items.length - 1 ? 'mb-2' : ''} ${
-          bolded ? 'font-semibold' : ''
-        } ${colorClassNames}`}
+        className={clsx(
+          index < items.length - 1 && 'mb-2',
+          bolded && 'font-semibold',
+          colorClassNames
+        )}
       >
         {bulleted ? '• ' : ''}
         {parseTextWithKbd(text)}
@@ -485,8 +487,10 @@ export default function Home() {
                     >
                       <Tooltip content={renderTooltipContent(tooltip)}>
                         <span
-                          className={`font-mono flex items-center gap-1 ${commandColorClass}`}
-                          style={{ whiteSpace: 'nowrap' }}
+                          className={clsx(
+                            'font-mono flex items-center gap-1 whitespace-nowrap',
+                            commandColorClass
+                          )}
                         >
                           {command}
                           <svg
@@ -516,7 +520,10 @@ export default function Home() {
                     className="flex justify-between items-start gap-1"
                   >
                     <span
-                      className={`font-mono flex items-center gap-1 ${commandColorClass}`}
+                      className={clsx(
+                        'font-mono flex items-center gap-1',
+                        commandColorClass
+                      )}
                     >
                       {command}
                     </span>
