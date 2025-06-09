@@ -370,13 +370,7 @@ function renderTooltipContent(items: TooltipItem[]) {
 
 export default function Home() {
   return (
-    <div
-      className={clsx(
-        'text-gray-900 dark:text-gray-100 p-4',
-        sourceCodePro.variable,
-        inter.variable
-      )}
-    >
+    <div className={clsx('p-4', sourceCodePro.variable, inter.variable)}>
       <h1 className="text-2xl font-bold text-center mb-4">
         Vim Cheat Sheet for Beginners
       </h1>
