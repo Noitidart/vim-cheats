@@ -1,16 +1,16 @@
-import clsx from "clsx";
-import { Inter, Source_Code_Pro } from "next/font/google";
+import clsx from 'clsx';
+import { Inter, Source_Code_Pro } from 'next/font/google';
 
 const sourceCodePro = Source_Code_Pro({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  variable: "--font-source-code-pro",
+  subsets: ['latin'],
+  weight: ['500', '600'],
+  variable: '--font-source-code-pro'
 });
 
 const inter = Inter({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-inter",
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-inter'
 });
 
 type TooltipOptions = {
@@ -38,301 +38,301 @@ type Section = {
 
 const sections: Section[] = [
   {
-    title: "Movement",
-    colorClass: "text-blue-600 dark:text-blue-400",
+    title: 'Movement',
+    colorClass: 'text-blue-600 dark:text-blue-400',
     commands: [
-      ["h/j/k/l", "←/↓/↑/→"],
-      ["w/b", "word start →/←"],
-      ["e/ge", "word end →/←"],
-      ["W/B", "spaced word start →/←"],
-      ["E/gE", "spaced word end →/←"],
-      ["0/$", "line start/end"],
-      ["^/g_", "first/last non-blank on line"],
-      ["gg/G", "file top/bottom"],
-      ["(/)", "sentences ←/→"],
-      ["{/}", "paragraphs ←/→"],
-      ["[[/]]", "sections ←/→"],
-      ["Ctrl-o/Ctrl-i", "older/newer position"],
-      ["%", "matching bracket"],
-    ],
+      ['h/j/k/l', '←/↓/↑/→'],
+      ['w/b', 'word start →/←'],
+      ['e/ge', 'word end →/←'],
+      ['W/B', 'spaced word start →/←'],
+      ['E/gE', 'spaced word end →/←'],
+      ['0/$', 'line start/end'],
+      ['^/g_', 'first/last non-blank on line'],
+      ['gg/G', 'file top/bottom'],
+      ['(/)', 'sentences ←/→'],
+      ['{/}', 'paragraphs ←/→'],
+      ['[[/]]', 'sections ←/→'],
+      ['Ctrl-o/Ctrl-i', 'older/newer position'],
+      ['%', 'matching bracket']
+    ]
   },
   {
-    title: "Scrolling",
-    colorClass: "text-pink-600 dark:text-pink-400",
+    title: 'Scrolling',
+    colorClass: 'text-pink-600 dark:text-pink-400',
     commands: [
       [
-        "WITHOUT cursor",
-        "",
-        { isText: true, commandColorClass: "font-semibold" },
+        'WITHOUT cursor',
+        '',
+        { isText: true, commandColorClass: 'font-semibold' }
       ],
-      ["Ctrl-e", "scroll down one line"],
-      ["Ctrl-y", "scroll up one line"],
-      ["zt", "current line to top"],
-      ["zz", "center current line"],
-      ["zb", "current line to bottom"],
-      ["", "", { isText: true }],
-      ["with CURSOR", "", { isText: true, commandColorClass: "font-semibold" }],
-      ["Ctrl-d/u", "half page ↓/↑"],
-      ["Ctrl-f/b", "full page ↓/↑"],
-      ["H/M/L", "top/middle/bottom of screen"],
-      ["[number]G", "go to line [number]"],
-      [":[number]", "go to line [number]"],
-    ],
+      ['Ctrl-e', 'scroll down one line'],
+      ['Ctrl-y', 'scroll up one line'],
+      ['zt', 'current line to top'],
+      ['zz', 'center current line'],
+      ['zb', 'current line to bottom'],
+      ['', '', { isText: true }],
+      ['with CURSOR', '', { isText: true, commandColorClass: 'font-semibold' }],
+      ['Ctrl-d/u', 'half page ↓/↑'],
+      ['Ctrl-f/b', 'full page ↓/↑'],
+      ['H/M/L', 'top/middle/bottom of screen'],
+      ['[number]G', 'go to line [number]'],
+      [':[number]', 'go to line [number]']
+    ]
   },
   {
-    title: "Basic Editing",
-    colorClass: "text-green-600 dark:text-green-400",
+    title: 'Basic Editing',
+    colorClass: 'text-green-600 dark:text-green-400',
     commands: [
-      ["i/a", "insert before/after"],
-      ["I/A", "insert at start/end of line"],
-      ["o/O", "new line below/above"],
-      ["x/X", "delete/backspace"],
-      ["s", "substitute character"],
+      ['i/a', 'insert before/after'],
+      ['I/A', 'insert at start/end of line'],
+      ['o/O', 'new line below/above'],
+      ['x/X', 'delete/backspace'],
+      ['s', 'substitute character'],
       [
-        "S",
-        "substitute line",
+        'S',
+        'substitute line',
         {
           tooltip: [
-            "Deletes entire line and enters insert mode",
+            'Deletes entire line and enters insert mode',
             "Keeps the line's indentation",
-            "Equivalent to <kbd>cc</kbd>",
-          ],
-        },
+            'Equivalent to <kbd>cc</kbd>'
+          ]
+        }
       ],
-      ["u/Ctrl-r", "undo/redo"],
-      [".", "repeat last action"],
-      [">>/<<", "indent/unindent"],
-      ["==", "auto-indent line"],
-      ["J", "join lines"],
-      ["~", "toggle case"],
-    ],
+      ['u/Ctrl-r', 'undo/redo'],
+      ['.', 'repeat last action'],
+      ['>>/<<', 'indent/unindent'],
+      ['==', 'auto-indent line'],
+      ['J', 'join lines'],
+      ['~', 'toggle case']
+    ]
   },
   {
-    title: "Copy/Cut/Paste",
-    colorClass: "text-cyan-600 dark:text-cyan-400",
+    title: 'Copy/Cut/Paste',
+    colorClass: 'text-cyan-600 dark:text-cyan-400',
     commands: [
-      ["yy", "copy line"],
-      ["yw", "copy word"],
-      ["y$", "copy to line end"],
-      ["dd", "cut line"],
-      ["dw", "cut word"],
-      ["d$", "cut to line end"],
-      ["p/P", "paste after/before"],
-      ['"+y', "copy to clipboard"],
-      ['"+p', "paste from clipboard"],
-    ],
+      ['yy', 'copy line'],
+      ['yw', 'copy word'],
+      ['y$', 'copy to line end'],
+      ['dd', 'cut line'],
+      ['dw', 'cut word'],
+      ['d$', 'cut to line end'],
+      ['p/P', 'paste after/before'],
+      ['"+y', 'copy to clipboard'],
+      ['"+p', 'paste from clipboard']
+    ]
   },
   {
-    title: "Visual Mode",
-    colorClass: "text-yellow-600 dark:text-yellow-400",
+    title: 'Visual Mode',
+    colorClass: 'text-yellow-600 dark:text-yellow-400',
     commands: [
       [
-        "v",
-        "select characters",
+        'v',
+        'select characters',
         {
           tooltip: [
             [
               "Why <kbd>vt$</kbd> doesn't select to end of line as you may expect:",
-              { bulleted: false, bolded: true },
+              { bulleted: false, bolded: true }
             ],
-            "<kbd>$</kbd> is a motion command, not a character to search for",
-            "<kbd>t</kbd> and <kbd>f</kbd> search for actual characters in the text",
-            "<kbd>vt$</kbd> would look for a literal $ character",
-            ["Use these instead:", { bulleted: false, bolded: true }],
-            "<kbd>v$</kbd> - select to end of line",
-            "<kbd>vg_</kbd> - select to last non-blank character",
-            "<kbd>^vg_</kbd> - select line without indent or new line",
-          ],
-        },
+            '<kbd>$</kbd> is a motion command, not a character to search for',
+            '<kbd>t</kbd> and <kbd>f</kbd> search for actual characters in the text',
+            '<kbd>vt$</kbd> would look for a literal $ character',
+            ['Use these instead:', { bulleted: false, bolded: true }],
+            '<kbd>v$</kbd> - select to end of line',
+            '<kbd>vg_</kbd> - select to last non-blank character',
+            '<kbd>^vg_</kbd> - select line without indent or new line'
+          ]
+        }
       ],
-      ["V", "select lines"],
-      ["Ctrl-v", "select block"],
-      ["y", "copy selection"],
-      ["d", "delete selection"],
+      ['V', 'select lines'],
+      ['Ctrl-v', 'select block'],
+      ['y', 'copy selection'],
+      ['d', 'delete selection'],
       [
-        "c/s",
-        "change selection",
+        'c/s',
+        'change selection',
         {
           tooltip: [
             [
               "In visual mode, <kbd>c</kbd> and <kbd>s</kbd> do the same thing. In normal mode they're different:",
-              { bulleted: false },
+              { bulleted: false }
             ],
-            "<kbd>s</kbd> substitutes one character",
-            "<kbd>c</kbd> requires a motion",
-          ],
-        },
+            '<kbd>s</kbd> substitutes one character',
+            '<kbd>c</kbd> requires a motion'
+          ]
+        }
       ],
-      [">/<", "indent/unindent"],
-      ["Esc", "exit visual mode"],
-    ],
+      ['>/<', 'indent/unindent'],
+      ['Esc', 'exit visual mode']
+    ]
   },
   {
-    title: "Search & Replace",
-    colorClass: "text-purple-600 dark:text-purple-400",
+    title: 'Search & Replace',
+    colorClass: 'text-purple-600 dark:text-purple-400',
     commands: [
-      ["/word", "search forward"],
-      ["?word", "search backward"],
-      ["n/N", "next/prev match"],
-      ["*/#", "next/prev word under cursor"],
-      [":noh", "clear highlights"],
-      [":%s/old/new/g", "replace all"],
-      [":%s/old/new/gc", "replace with confirm"],
-    ],
+      ['/word', 'search forward'],
+      ['?word', 'search backward'],
+      ['n/N', 'next/prev match'],
+      ['*/#', 'next/prev word under cursor'],
+      [':noh', 'clear highlights'],
+      [':%s/old/new/g', 'replace all'],
+      [':%s/old/new/gc', 'replace with confirm']
+    ]
   },
   {
-    title: "Files",
-    colorClass: "text-red-600 dark:text-red-400",
+    title: 'Files',
+    colorClass: 'text-red-600 dark:text-red-400',
     commands: [
-      [":w", "save file"],
-      [":q", "quit vim"],
-      [":wq", "save and quit"],
-      [":q!", "quit without saving"],
+      [':w', 'save file'],
+      [':q', 'quit vim'],
+      [':wq', 'save and quit'],
+      [':q!', 'quit without saving'],
       [
-        ":cq",
-        "exit with error",
+        ':cq',
+        'exit with error',
         {
           tooltip: [
-            "Great for aborting Git operations",
-            "Cancels rebase, merge, commit",
-          ],
-        },
+            'Great for aborting Git operations',
+            'Cancels rebase, merge, commit'
+          ]
+        }
       ],
-      [":e filename", "open file"],
-      [":sp", "split horizontal"],
-      [":vsp", "split vertical"],
-      ["Ctrl-w Ctrl-w", "switch windows"],
-      ["Ctrl-w Ctrl-h/j/k/l", "←/↓/↑/→"],
-    ],
+      [':e filename', 'open file'],
+      [':sp', 'split horizontal'],
+      [':vsp', 'split vertical'],
+      ['Ctrl-w Ctrl-w', 'switch windows'],
+      ['Ctrl-w Ctrl-h/j/k/l', '←/↓/↑/→']
+    ]
   },
   {
-    title: "Text Objects",
-    colorClass: "text-orange-600 dark:text-orange-400",
+    title: 'Text Objects',
+    colorClass: 'text-orange-600 dark:text-orange-400',
     commands: [
       [
-        "Pattern: [action][scope][object]",
-        "",
-        { isText: true, commandColorClass: "font-bold !text-sm" },
+        'Pattern: [action][scope][object]',
+        '',
+        { isText: true, commandColorClass: 'font-bold !text-sm' }
       ],
-      ["", "", { isText: true }],
-      ["Actions", "", { isText: true, commandColorClass: "font-bold" }],
-      ["d", "delete"],
-      ["c", "change"],
-      ["y", "yank (copy)"],
-      ["v", "visual select"],
-      ["gU", "uppercase"],
-      ["gu", "lowercase"],
-      ["g~", "toggle case"],
-      ["", "", { isText: true }],
-      ["Scopes", "", { isText: true, commandColorClass: "font-bold" }],
-      ["i", "inside (exclusive)"],
-      ["a", "around (inclusive)"],
-      ["", "", { isText: true }],
-      ["Objects", "", { isText: true, commandColorClass: "font-bold" }],
-      ["w", "word"],
-      ["W", "word with punctuation"],
-      ["s", "sentence"],
-      ["p", "paragraph"],
-      ["b", "block (same as '(')"],
-      ["B", "Block (same as '{')"],
-      ["t", "tag (HTML/XML)"],
-      ["\" ' `", "quoted strings"],
-      ["( ) or b", "parentheses"],
-      ["{ } or B", "braces"],
-      ["[ ]", "brackets"],
-      ["< >", "angle brackets"],
-      ["", "", { isText: true }],
-      ["Examples", "", { isText: true, commandColorClass: "font-bold" }],
-      ["iw", "word"],
-      ["aw", "word with space"],
+      ['', '', { isText: true }],
+      ['Actions', '', { isText: true, commandColorClass: 'font-bold' }],
+      ['d', 'delete'],
+      ['c', 'change'],
+      ['y', 'yank (copy)'],
+      ['v', 'visual select'],
+      ['gU', 'uppercase'],
+      ['gu', 'lowercase'],
+      ['g~', 'toggle case'],
+      ['', '', { isText: true }],
+      ['Scopes', '', { isText: true, commandColorClass: 'font-bold' }],
+      ['i', 'inside (exclusive)'],
+      ['a', 'around (inclusive)'],
+      ['', '', { isText: true }],
+      ['Objects', '', { isText: true, commandColorClass: 'font-bold' }],
+      ['w', 'word'],
+      ['W', 'word with punctuation'],
+      ['s', 'sentence'],
+      ['p', 'paragraph'],
+      ['b', "block (same as '(')"],
+      ['B', "Block (same as '{')"],
+      ['t', 'tag (HTML/XML)'],
+      ['" \' `', 'quoted strings'],
+      ['( ) or b', 'parentheses'],
+      ['{ } or B', 'braces'],
+      ['[ ]', 'brackets'],
+      ['< >', 'angle brackets'],
+      ['', '', { isText: true }],
+      ['Examples', '', { isText: true, commandColorClass: 'font-bold' }],
+      ['iw', 'word'],
+      ['aw', 'word with space'],
       [
-        "i[char]",
-        "inside [char]",
+        'i[char]',
+        'inside [char]',
         {
           tooltip: [
             [
-              "Works with any delimiter character:",
-              { bulleted: false, bolded: true },
+              'Works with any delimiter character:',
+              { bulleted: false, bolded: true }
             ],
             '<kbd>i"</kbd> - inside quotes',
-            "<kbd>i(</kbd> - inside parens",
-            "<kbd>i{</kbd> - inside braces",
-            "<kbd>i[</kbd> - inside brackets",
+            '<kbd>i(</kbd> - inside parens',
+            '<kbd>i{</kbd> - inside braces',
+            '<kbd>i[</kbd> - inside brackets',
             "<kbd>i'</kbd> - inside single quotes",
-            "<kbd>i`</kbd> - inside backticks",
-          ],
-        },
+            '<kbd>i`</kbd> - inside backticks'
+          ]
+        }
       ],
       [
-        "a[char]",
-        "around [char]",
+        'a[char]',
+        'around [char]',
         {
           tooltip: [
             [
-              "Includes the delimiter characters:",
-              { bulleted: false, bolded: true },
+              'Includes the delimiter characters:',
+              { bulleted: false, bolded: true }
             ],
             '<kbd>a"</kbd> - inside with quotes',
-            "<kbd>a(</kbd> - inside with parens",
-            "<kbd>a{</kbd> - inside with braces",
-            "<kbd>a[</kbd> - inside with brackets",
+            '<kbd>a(</kbd> - inside with parens',
+            '<kbd>a{</kbd> - inside with braces',
+            '<kbd>a[</kbd> - inside with brackets',
             "<kbd>a'</kbd> - inside with single quotes",
-            "<kbd>a`</kbd> - inside with backticks",
-          ],
-        },
+            '<kbd>a`</kbd> - inside with backticks'
+          ]
+        }
       ],
-      ["it", "tag content"],
-      ["at", "tag content with tags"],
-    ],
+      ['it', 'tag content'],
+      ['at', 'tag content with tags']
+    ]
   },
   {
-    title: "Character Motion Commands",
-    colorClass: "text-indigo-600 dark:text-indigo-400",
+    title: 'Character Motion Commands',
+    colorClass: 'text-indigo-600 dark:text-indigo-400',
     commands: [
-      ["f/F[char]", "to (inclusive) char →/←"],
-      ["t/T[char]", "till (exclusive) char →/←"],
-      [";/,", "repeat →/←"],
-      ["", "", { isText: true }],
+      ['f/F[char]', 'to (inclusive) char →/←'],
+      ['t/T[char]', 'till (exclusive) char →/←'],
+      [';/,', 'repeat →/←'],
+      ['', '', { isText: true }],
       [
-        "Can prefix with actions:",
-        "",
-        { isText: true, commandColorClass: "font-bold !text-sm" },
+        'Can prefix with actions:',
+        '',
+        { isText: true, commandColorClass: 'font-bold !text-sm' }
       ],
-      ["d", "delete"],
-      ["c", "change"],
-      ["y", "copy"],
-      ["v", "visual select"],
-      ["Examples", "", { isText: true, commandColorClass: "font-bold" }],
-      ["dt<space>", "delete till space (exclusive)"],
-      ["df<space>", "delete to space (inclusive)"],
-      ["ct)", "change till closing paren (exclusive)"],
-      ["yf.", "copy to period (inclusive)"],
-      ["vt:", "select till colon (exclusive)"],
-    ],
+      ['d', 'delete'],
+      ['c', 'change'],
+      ['y', 'copy'],
+      ['v', 'visual select'],
+      ['Examples', '', { isText: true, commandColorClass: 'font-bold' }],
+      ['dt<space>', 'delete till space (exclusive)'],
+      ['df<space>', 'delete to space (inclusive)'],
+      ['ct)', 'change till closing paren (exclusive)'],
+      ['yf.', 'copy to period (inclusive)'],
+      ['vt:', 'select till colon (exclusive)']
+    ]
   },
   {
-    title: "Other",
-    colorClass: "text-teal-600 dark:text-teal-400",
+    title: 'Other',
+    colorClass: 'text-teal-600 dark:text-teal-400',
     commands: [
-      [":set number", "show line numbers"],
-      [":set nonumber", "hide line numbers"],
-    ],
-  },
+      [':set number', 'show line numbers'],
+      [':set nonumber', 'hide line numbers']
+    ]
+  }
 ];
 
 function parseTextWithKbd(text: string) {
   const parts = text.split(/(<kbd>.*?<\/kbd>)/g);
   return parts.map((part, i) => {
-    if (part.startsWith("<kbd>") && part.endsWith("</kbd>")) {
+    if (part.startsWith('<kbd>') && part.endsWith('</kbd>')) {
       const content = part.slice(5, -6);
       return (
         <kbd
           key={i}
           className="inline-block px-0.5 py-px mx-0.5 text-xs font-mono bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded border border-gray-300 dark:border-gray-600 shadow-sm"
           style={{
-            fontFamily: "var(--font-source-code-pro), monospace",
+            fontFamily: 'var(--font-source-code-pro), monospace',
             boxShadow:
-              "0 1px 2px rgba(0, 0, 0, 0.1), inset 0 -1px 2px rgba(0, 0, 0, 0.1)",
+              '0 1px 2px rgba(0, 0, 0, 0.1), inset 0 -1px 2px rgba(0, 0, 0, 0.1)'
           }}
         >
           {content}
@@ -345,21 +345,21 @@ function parseTextWithKbd(text: string) {
 
 function renderTooltipContent(items: TooltipItem[]) {
   return items.map((item, index) => {
-    const isString = typeof item === "string";
+    const isString = typeof item === 'string';
     const text = isString ? item : item[0];
     const options = isString ? {} : item[1];
     const bulleted = options.bulleted !== false;
     const bolded = options.bolded || false;
-    const colorClassNames = options.colorClassNames || "";
+    const colorClassNames = options.colorClassNames || '';
 
     return (
       <p
         key={index}
-        className={`${index < items.length - 1 ? "mb-2" : ""} ${
-          bolded ? "font-semibold" : ""
+        className={`${index < items.length - 1 ? 'mb-2' : ''} ${
+          bolded ? 'font-semibold' : ''
         } ${colorClassNames}`}
       >
-        {bulleted ? "• " : ""}
+        {bulleted ? '• ' : ''}
         {parseTextWithKbd(text)}
       </p>
     );
@@ -370,7 +370,7 @@ export default function Home() {
   return (
     <div
       className={clsx(
-        "min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-4",
+        'min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-4',
         sourceCodePro.variable,
         inter.variable
       )}
@@ -381,13 +381,24 @@ export default function Home() {
 
       <style jsx global>{`
         body {
-          font-family: var(--font-inter), -apple-system, BlinkMacSystemFont,
-            "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-            "Droid Sans", "Helvetica Neue", sans-serif;
+          font-family:
+            var(--font-inter),
+            -apple-system,
+            BlinkMacSystemFont,
+            'Segoe UI',
+            'Roboto',
+            'Oxygen',
+            'Ubuntu',
+            'Cantarell',
+            'Fira Sans',
+            'Droid Sans',
+            'Helvetica Neue',
+            sans-serif;
         }
         .font-mono {
-          font-family: var(--font-source-code-pro), "SF Mono", Monaco,
-            "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+          font-family:
+            var(--font-source-code-pro), 'SF Mono', Monaco, 'Cascadia Code',
+            'Roboto Mono', Consolas, 'Courier New', monospace;
           font-size: 0.875rem;
           font-weight: 500;
           letter-spacing: 0.025em;
@@ -401,10 +412,10 @@ export default function Home() {
             key={sectionIndex}
             className="bg-white dark:bg-gray-800 rounded-lg p-3 shadow-sm dark:shadow-none"
           >
-            <div className={section.tooltip ? "group relative" : ""}>
+            <div className={section.tooltip ? 'group relative' : ''}>
               <h2
                 className={clsx(
-                  "text-base font-bold mb-2 flex items-center justify-between",
+                  'text-base font-bold mb-2 flex items-center justify-between',
                   section.colorClass
                 )}
               >
@@ -448,7 +459,7 @@ export default function Home() {
               {section.commands.map((cmd, cmdIndex) => {
                 const [command, description, options = {}] = cmd;
                 const isText = options.isText || false;
-                const commandColorClass = options.commandColorClass || "";
+                const commandColorClass = options.commandColorClass || '';
                 const tooltip = options.tooltip;
 
                 if (isText) {
@@ -456,7 +467,7 @@ export default function Home() {
                     <div
                       key={cmdIndex}
                       className={clsx(
-                        "text-gray-700 dark:text-gray-300 text-xs",
+                        'text-gray-700 dark:text-gray-300 text-xs',
                         commandColorClass
                       )}
                     >
@@ -469,13 +480,13 @@ export default function Home() {
                   <div
                     key={cmdIndex}
                     className={clsx(
-                      "flex justify-between items-start gap-1",
-                      tooltip && "group relative"
+                      'flex justify-between items-start gap-1',
+                      tooltip && 'group relative'
                     )}
                   >
                     <span
                       className={`font-mono flex items-center gap-1 ${commandColorClass}`}
-                      style={tooltip ? { whiteSpace: "nowrap" } : {}}
+                      style={tooltip ? { whiteSpace: 'nowrap' } : {}}
                     >
                       {command}
                       {tooltip && (
