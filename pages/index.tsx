@@ -1,18 +1,5 @@
 import Tooltip from '@/components/Tooltip';
 import clsx from 'clsx';
-import { Inter, Source_Code_Pro } from 'next/font/google';
-
-const sourceCodePro = Source_Code_Pro({
-  subsets: ['latin'],
-  weight: ['500', '600'],
-  variable: '--font-source-code-pro'
-});
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-inter'
-});
 
 type TooltipOptions = {
   bulleted?: boolean;
@@ -370,37 +357,10 @@ function renderTooltipContent(items: TooltipItem[]) {
 
 export default function Home() {
   return (
-    <div className={clsx('p-4', sourceCodePro.variable, inter.variable)}>
+    <main className="p-4">
       <h1 className="text-2xl font-bold text-center mb-4">
         Vim Cheat Sheet for Beginners
       </h1>
-
-      <style jsx global>{`
-        body {
-          font-family:
-            var(--font-inter),
-            -apple-system,
-            BlinkMacSystemFont,
-            'Segoe UI',
-            'Roboto',
-            'Oxygen',
-            'Ubuntu',
-            'Cantarell',
-            'Fira Sans',
-            'Droid Sans',
-            'Helvetica Neue',
-            sans-serif;
-        }
-        .font-mono {
-          font-family:
-            var(--font-source-code-pro), 'SF Mono', Monaco, 'Cascadia Code',
-            'Roboto Mono', Consolas, 'Courier New', monospace;
-          font-size: 0.875rem;
-          font-weight: 500;
-          letter-spacing: 0.025em;
-          white-space: nowrap;
-        }
-      `}</style>
 
       <div className="max-w-full mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3 text-sm">
         {sections.map((section, sectionIndex) => (
@@ -528,6 +488,6 @@ export default function Home() {
           </div>
         ))}
       </div>
-    </div>
+    </main>
   );
 }
