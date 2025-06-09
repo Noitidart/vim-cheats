@@ -331,7 +331,6 @@ function parseTextWithKbd(text: string) {
           key={i}
           className="inline-block px-0.5 py-px mx-0.5 text-xs font-mono bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded border border-gray-300 dark:border-gray-600 shadow-sm"
           style={{
-            fontFamily: 'var(--font-source-code-pro), monospace',
             boxShadow:
               '0 1px 2px rgba(0, 0, 0, 0.1), inset 0 -1px 2px rgba(0, 0, 0, 0.1)'
           }}
