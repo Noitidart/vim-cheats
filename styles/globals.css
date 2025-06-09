@@ -1,26 +1,20 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html {
+  /* Background color is set on html element because:
+   * - HTML always fills the entire viewport, even if body content is shorter
+   * - Overscroll areas (bounce effect on iOS/macOS) show the html background,
+   *   setting it on body alone would show white/default color during
+   *   overscroll.
+   */
+  @apply bg-gray-100 dark:bg-gray-900;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
