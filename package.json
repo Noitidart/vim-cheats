@@ -7,6 +7,7 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
+		"format": "perl -i -pe \"s/(prettier\\/prettier.*?)off/\\1error/\" eslint.config.mjs && npm run lint -- --fix; perl -i -pe \"s/(prettier\\/prettier.*?)error/\\1off/\" eslint.config.mjs",
 		"deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
 		"preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
 		"cf-typegen": "wrangler types --env-interface CloudflareEnv ./cloudflare-env.d.ts"
@@ -27,6 +28,8 @@
 		"eslint": "^9",
 		"eslint-config-next": "15.3.3",
 		"eslint-config-prettier": "^10.1.5",
+		"eslint-plugin-prettier": "^5.4.1",
+		"prettier": "^3.5.3",
 		"tailwindcss": "^4",
 		"typescript": "^5",
 		"wrangler": "^4.19.1"
