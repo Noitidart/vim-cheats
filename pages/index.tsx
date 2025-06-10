@@ -12,6 +12,7 @@ type TooltipItem = string | [string, TooltipOptions];
 type CommandOptions = {
   tooltip?: TooltipItem[];
   commandColorClass?: string;
+  descriptionClassNames?: string;
   isText?: boolean;
 };
 
@@ -40,31 +41,30 @@ const sections: Section[] = [
       ['(/)', 'sentences ←/→'],
       ['{/}', 'paragraphs ←/→'],
       ['[[/]]', 'sections ←/→'],
-      ['Ctrl-o/Ctrl-i', 'older/newer position'],
-      ['%', 'matching bracket']
+      ['f/F[char]', 'to (inclusive) char →/←'],
+      ['t/T[char]', 'till (exclusive) char →/←'],
+      [';/,', 'repeat f/F/t/T[char] →/←']
     ]
   },
   {
     title: 'Scrolling',
     colorClass: 'text-pink-600 dark:text-pink-400',
     commands: [
-      [
-        'WITHOUT cursor',
-        '',
-        { isText: true, commandColorClass: 'font-semibold' }
-      ],
+      ['WITHOUT cursor', '', { isText: true, commandColorClass: 'font-bold' }],
       ['Ctrl-e', 'scroll down one line'],
       ['Ctrl-y', 'scroll up one line'],
       ['zt', 'current line to top'],
       ['zz', 'center current line'],
       ['zb', 'current line to bottom'],
       ['', '', { isText: true }],
-      ['with CURSOR', '', { isText: true, commandColorClass: 'font-semibold' }],
+      ['with CURSOR', '', { isText: true, commandColorClass: 'font-bold' }],
       ['Ctrl-d/u', 'half page ↓/↑'],
       ['Ctrl-f/b', 'full page ↓/↑'],
       ['H/M/L', 'top/middle/bottom of screen'],
       ['[number]G', 'go to line [number]'],
-      [':[number]', 'go to line [number]']
+      [':[number]', 'go to line [number]'],
+      ['Ctrl-o/Ctrl-i', 'older/newer position'],
+      ['%', 'matching bracket']
     ]
   },
   {
@@ -74,21 +74,17 @@ const sections: Section[] = [
       ['i/a', 'insert before/after'],
       ['I/A', 'insert at start/end of line'],
       ['o/O', 'new line below/above'],
-      ['x/X', 'delete/backspace'],
-      ['s', 'substitute character'],
+      ['u/Ctrl-r', 'undo/redo'],
       [
-        'S',
-        'substitute line',
+        '.',
+        'repeat last action',
         {
           tooltip: [
-            'Deletes entire line and enters insert mode',
-            "Keeps the line's indentation",
-            'Equivalent to <kbd>cc</kbd>'
+            'If the last action entered insert mode, it repeats without re-entering insert mode',
+            'Example: After typing <kbd>ciw</kbd> then <kbd>hello</kbd>, pressing <kbd>.</kbd> will change the next word to <kbd>hello</kbd>'
           ]
         }
       ],
-      ['u/Ctrl-r', 'undo/redo'],
-      ['.', 'repeat last action'],
       ['>>/<<', 'indent/unindent'],
       ['==', 'auto-indent line'],
       ['J', 'join lines'],
@@ -96,18 +92,55 @@ const sections: Section[] = [
     ]
   },
   {
-    title: 'Copy/Cut/Paste',
+    title: 'Paste/Copy/Cut',
     colorClass: 'text-cyan-600 dark:text-cyan-400',
     commands: [
-      ['yy', 'copy line'],
-      ['yw', 'copy word'],
-      ['y$', 'copy to line end'],
-      ['dd', 'cut line'],
-      ['dw', 'cut word'],
-      ['d$', 'cut to line end'],
       ['p/P', 'paste after/before'],
       ['"+y', 'copy to clipboard'],
-      ['"+p', 'paste from clipboard']
+      ['"+p', 'paste from clipboard'],
+      [
+        'Pattern: [action][motion]',
+        '',
+        { isText: true, commandColorClass: 'font-bold !text-sm' }
+      ],
+      ['Actions', '', { isText: true, commandColorClass: 'font-bold' }],
+      ['y', 'yank '],
+      ['d', 'delete (cut)'],
+      ['c', 'change (cut & insert)'],
+      ['Motions', '', { isText: true, commandColorClass: 'font-bold' }],
+      [
+        <>
+          See Movement{' '}
+          <span className="text-xs font-normal text-gray-900 dark:text-gray-100">
+            except repeat (;/,)
+          </span>
+        </>,
+        '',
+        {
+          isText: true,
+          commandColorClass:
+            'font-bold !text-sm !text-blue-600 dark:!text-blue-400'
+        }
+      ],
+      [
+        'Shortcuts (Special Cases)',
+        '',
+        { isText: true, commandColorClass: 'font-bold !text-sm' }
+      ],
+      ['yy/Y', 'yank line'],
+      ['dd', 'delete line'],
+      [
+        'cc/S',
+        'cut & insert line',
+        {
+          tooltip: ["Keeps the line's indentation"]
+        }
+      ],
+      ['s', 'substitute char (same as cl)'],
+      ['x', 'delete char (same as dl)'],
+      ['X', 'backspace (same as dh)'],
+      ['D', 'delete to line end (same as d$)'],
+      ['C', 'cut & insert to line end (same as c$)']
     ]
   },
   {
@@ -205,7 +238,7 @@ const sections: Section[] = [
       ['', '', { isText: true }],
       ['Actions', '', { isText: true, commandColorClass: 'font-bold' }],
       ['d', 'delete'],
-      ['c', 'change'],
+      ['c', 'cut & insert'],
       ['y', 'yank (copy)'],
       ['v', 'visual select'],
       ['gU', 'uppercase'],
@@ -271,31 +304,6 @@ const sections: Section[] = [
       ],
       ['it', 'tag content'],
       ['at', 'tag content with tags']
-    ]
-  },
-  {
-    title: 'Character Motion Commands',
-    colorClass: 'text-indigo-600 dark:text-indigo-400',
-    commands: [
-      ['f/F[char]', 'to (inclusive) char →/←'],
-      ['t/T[char]', 'till (exclusive) char →/←'],
-      [';/,', 'repeat →/←'],
-      ['', '', { isText: true }],
-      [
-        'Can prefix with actions:',
-        '',
-        { isText: true, commandColorClass: 'font-bold !text-sm' }
-      ],
-      ['d', 'delete'],
-      ['c', 'change'],
-      ['y', 'copy'],
-      ['v', 'visual select'],
-      ['Examples', '', { isText: true, commandColorClass: 'font-bold' }],
-      ['dt<space>', 'delete till space (exclusive)'],
-      ['df<space>', 'delete to space (inclusive)'],
-      ['ct)', 'change till closing paren (exclusive)'],
-      ['yf.', 'copy to period (inclusive)'],
-      ['vt:', 'select till colon (exclusive)']
     ]
   },
   {
@@ -462,7 +470,14 @@ export default function Home() {
                           </svg>
                         </span>
                       </Tooltip>
-                      <span className="text-right">{description}</span>
+                      <span
+                        className={clsx(
+                          'text-right',
+                          options.descriptionClassNames
+                        )}
+                      >
+                        {description}
+                      </span>
                     </div>
                   );
                 }
@@ -480,7 +495,14 @@ export default function Home() {
                     >
                       {command}
                     </span>
-                    <span className="text-right">{description}</span>
+                    <span
+                      className={clsx(
+                        'text-right',
+                        options.descriptionClassNames
+                      )}
+                    >
+                      {description}
+                    </span>
                   </div>
                 );
               })}
