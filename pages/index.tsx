@@ -43,7 +43,7 @@ const sections: Section[] = [
       ['[[/]]', 'sections ←/→'],
       ['f/F[char]', 'to (inclusive) char →/←'],
       ['t/T[char]', 'till (exclusive) char →/←'],
-      [';/,', 'repeat f/F/t/T[char] →/←']
+      [';/,', 'repeat [char] →/←']
     ]
   },
   {
