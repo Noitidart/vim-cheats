@@ -16,7 +16,7 @@ type CommandOptions = {
   isText?: boolean;
 };
 
-type Command = [string, string, CommandOptions?];
+type Command = [React.ReactNode, React.ReactNode, CommandOptions?];
 
 type Section = {
   title: string;
