@@ -104,6 +104,25 @@ const sections: Section[] = [
       ['y', 'yank '],
       ['d', 'delete (cut)'],
       ['c', 'change (cut & insert)'],
+      [
+        'v',
+        'select characters',
+        {
+          tooltip: [
+            [
+              "Why <kbd>vt$</kbd> doesn't select to end of line as you may expect:",
+              { bulleted: false, bolded: true }
+            ],
+            '<kbd>$</kbd> is a motion command, not a character to search for',
+            '<kbd>t</kbd> and <kbd>f</kbd> search for actual characters in the text',
+            '<kbd>vt$</kbd> would look for a literal $ character',
+            ['Use these instead:', { bulleted: false, bolded: true }],
+            '<kbd>v$</kbd> - select to end of line',
+            '<kbd>vg_</kbd> - select to last non-blank character',
+            '<kbd>^vg_</kbd> - select line without indent or new line'
+          ]
+        }
+      ],
       ['"+y', 'copy to clipboard'],
       ['Motions', '', { isText: true, commandColorClass: 'font-bold' }],
       [
@@ -152,29 +171,21 @@ const sections: Section[] = [
     title: 'Visual Mode',
     colorClass: 'text-yellow-600 dark:text-yellow-400',
     commands: [
-      [
-        'v',
-        'select characters',
-        {
-          tooltip: [
-            [
-              "Why <kbd>vt$</kbd> doesn't select to end of line as you may expect:",
-              { bulleted: false, bolded: true }
-            ],
-            '<kbd>$</kbd> is a motion command, not a character to search for',
-            '<kbd>t</kbd> and <kbd>f</kbd> search for actual characters in the text',
-            '<kbd>vt$</kbd> would look for a literal $ character',
-            ['Use these instead:', { bulleted: false, bolded: true }],
-            '<kbd>v$</kbd> - select to end of line',
-            '<kbd>vg_</kbd> - select to last non-blank character',
-            '<kbd>^vg_</kbd> - select line without indent or new line'
-          ]
-        }
-      ],
       ['V', 'select lines'],
       ['Ctrl-v', 'select block'],
-      ['y', 'copy selection'],
-      ['d', 'delete selection'],
+      [
+        'Actions',
+        '',
+        { isText: true, commandColorClass: 'font-bold !text-sm' }
+      ],
+      [
+        'See "Actions" in Basic Actions',
+        '',
+        {
+          isText: true,
+          commandColorClass: 'font-bold !text-cyan-600 !dark:text-cyan-400'
+        }
+      ],
       [
         'c/s',
         'change selection',
