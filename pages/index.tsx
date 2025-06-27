@@ -129,13 +129,13 @@ const sections: Section[] = [
         'copy to clipboard',
         {
           tooltip: [
-            'On macOS, Cmd+C works in visual mode too!',
-            'Modern terminals intercept Cmd+C and copy visual selection',
+            'Native copy commands (Cmd+C on macOS, Ctrl+C on Windows/Linux) work in visual mode too!',
+            'Modern terminals intercept native copy commands and copy visual selection',
             'Both achieve the same result for local use',
             ['Differences:', { bulleted: false, bolded: true }],
-            '<kbd>"+y</kbd> works over SSH, Cmd+C does not',
+            '<kbd>"+y</kbd> works over SSH, native copy does not',
             '<kbd>"+y</kbd> puts text in Vim registers too',
-            'Cmd+C depends on your terminal app'
+            'Native copy depends on your terminal app'
           ]
         }
       ],
@@ -184,13 +184,13 @@ const sections: Section[] = [
         'paste from clipboard after/before',
         {
           tooltip: [
-            ['Warning about Cmd+V:', { bulleted: false, bolded: true }],
+            ['Warning about native paste (Cmd+V on macOS, Ctrl+V on Windows/Linux):', { bulleted: false, bolded: true }],
             'In Normal mode: Each character acts as a command!',
             'In Insert mode: Works but can mess up formatting',
             ['Best practices:', { bulleted: false, bolded: true }],
             'Use <kbd>"+p</kbd> in Normal mode (recommended)',
             'Or enter Insert mode first, then <kbd>:set paste</kbd>',
-            'Use Cmd+V, then <kbd>:set nopaste</kbd>',
+            'Use native paste, then <kbd>:set nopaste</kbd>',
             'This prevents auto-indent issues'
           ]
         }
