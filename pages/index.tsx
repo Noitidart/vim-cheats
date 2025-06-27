@@ -39,9 +39,37 @@ const sections: Section[] = [
       ['0/$', 'line start/end'],
       ['^/g_', 'first/last non-blank on line'],
       ['gg/G', 'file top/bottom'],
-      ['(/)', 'sentences ←/→'],
-      ['{/}', 'paragraphs ←/→'],
-      ['[[/]]', 'sections ←/→'],
+      [
+        '(/)',
+        'sentences ←/→',
+        {
+          tooltip: [
+            'Jumps to previous/next . ! ? followed by space',
+            'In code: often jumps between comments or strings'
+          ]
+        }
+      ],
+      [
+        '{/}',
+        'paragraphs ←/→',
+        {
+          tooltip: [
+            'Jumps to previous/next blank line',
+            'Great for navigating between code blocks'
+          ]
+        }
+      ],
+      [
+        '[[/]]',
+        'sections ←/→',
+        {
+          tooltip: [
+            'In TypeScript/React: often jumps to file start/end',
+            'Designed for C where { starts functions at column 0',
+            'Consider using { } for code navigation instead'
+          ]
+        }
+      ],
       ['f/F[char]', 'to (inclusive) char →/←'],
       ['t/T[char]', 'till (exclusive) char →/←'],
       [';/,', 'repeat [char] →/←']
@@ -184,7 +212,10 @@ const sections: Section[] = [
         'paste from clipboard after/before',
         {
           tooltip: [
-            ['Warning about native paste (Cmd+V on macOS, Ctrl+V on Windows/Linux):', { bulleted: false, bolded: true }],
+            [
+              'Warning about native paste (Cmd+V on macOS, Ctrl+V on Windows/Linux):',
+              { bulleted: false, bolded: true }
+            ],
             'In Normal mode: Each character acts as a command!',
             'In Insert mode: Works but can mess up formatting',
             ['Best practices:', { bulleted: false, bolded: true }],
