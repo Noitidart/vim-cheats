@@ -272,10 +272,10 @@ const sections: Section[] = [
       ['< >', 'angle brackets'],
       ['', '', { isText: true }],
       ['Examples', '', { isText: true, commandColorClass: 'font-bold' }],
-      ['iw', 'word'],
-      ['aw', 'word with space'],
+      ['[action]iw', 'word'],
+      ['[action]aw', 'word with space'],
       [
-        'i[char]',
+        '[action]i[char]',
         'inside [char]',
         {
           tooltip: [
@@ -293,7 +293,7 @@ const sections: Section[] = [
         }
       ],
       [
-        'a[char]',
+        '[action]a[char]',
         'around [char]',
         {
           tooltip: [
@@ -310,8 +310,8 @@ const sections: Section[] = [
           ]
         }
       ],
-      ['it', 'tag content'],
-      ['at', 'tag content with tags']
+      ['[action]it', 'tag content'],
+      ['[action]at', 'tag content with tags']
     ]
   },
   {
