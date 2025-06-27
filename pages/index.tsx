@@ -50,14 +50,14 @@ const sections: Section[] = [
     title: 'Scrolling',
     colorClass: 'text-pink-600 dark:text-pink-400',
     commands: [
-      ['WITHOUT cursor', '', { isText: true, commandColorClass: 'font-bold' }],
+      ['Without Cursor', '', { isText: true, commandColorClass: 'font-bold' }],
       ['Ctrl-e', 'scroll down one line'],
       ['Ctrl-y', 'scroll up one line'],
       ['zt', 'current line to top'],
       ['zz', 'center current line'],
       ['zb', 'current line to bottom'],
       ['', '', { isText: true }],
-      ['with CURSOR', '', { isText: true, commandColorClass: 'font-bold' }],
+      ['With Cursor', '', { isText: true, commandColorClass: 'font-bold' }],
       ['Ctrl-d/u', 'half page ↓/↑'],
       ['Ctrl-f/b', 'full page ↓/↑'],
       ['H/M/L', 'top/middle/bottom of screen'],
@@ -102,8 +102,8 @@ const sections: Section[] = [
       ],
       ['Actions', '', { isText: true, commandColorClass: 'font-bold' }],
       ['y', 'yank '],
-      ['d', 'delete (cut)'],
-      ['c', 'change (cut & insert)'],
+      ['d', 'cut'],
+      ['c', 'cut & insert'],
       [
         'v',
         'select characters',
@@ -159,7 +159,7 @@ const sections: Section[] = [
         { isText: true, commandColorClass: 'font-bold !text-sm' }
       ],
       ['yy/Y', 'yank line'],
-      ['dd', 'delete line'],
+      ['dd', 'cut line'],
       [
         'cc/S',
         'cut & insert line',
@@ -168,9 +168,9 @@ const sections: Section[] = [
         }
       ],
       ['s', 'substitute char (same as cl)'],
-      ['x', 'delete char (same as dl)'],
+      ['x', 'cut char (same as dl)'],
       ['X', 'backspace (same as dh)'],
-      ['D', 'delete to line end (same as d$)'],
+      ['D', 'cut to line end (same as d$)'],
       ['C', 'cut & insert to line end (same as c$)'],
       [
         'Pasting (No Motion)',
@@ -216,7 +216,7 @@ const sections: Section[] = [
         }
       ],
       [
-        'See Scrolling',
+        'See "With Cursor" in Scrolling',
         '',
         {
           isText: true,
