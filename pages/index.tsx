@@ -208,11 +208,27 @@ const sections: Section[] = [
         { isText: true, commandColorClass: 'font-bold !text-sm' }
       ],
       [
+        'See Movement',
+        '',
+        {
+          isText: true,
+          commandColorClass: 'font-bold !text-blue-600 dark:!text-blue-400'
+        }
+      ],
+      [
+        'See Scrolling',
+        '',
+        {
+          isText: true,
+          commandColorClass: 'font-bold !text-pink-600 dark:!text-pink-400'
+        }
+      ],
+      [
         'See "Actions" in Basic Actions',
         '',
         {
           isText: true,
-          commandColorClass: 'font-bold !text-cyan-600 !dark:text-cyan-400'
+          commandColorClass: 'font-bold !text-cyan-600 dark:!text-cyan-400'
         }
       ],
       [
