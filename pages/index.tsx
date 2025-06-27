@@ -92,12 +92,9 @@ const sections: Section[] = [
     ]
   },
   {
-    title: 'Paste/Copy/Cut',
+    title: 'Basic Actions',
     colorClass: 'text-cyan-600 dark:text-cyan-400',
     commands: [
-      ['p/P', 'paste after/before'],
-      ['"+y', 'copy to clipboard'],
-      ['"+p', 'paste from clipboard'],
       [
         'Pattern: [action][motion]',
         '',
@@ -107,6 +104,7 @@ const sections: Section[] = [
       ['y', 'yank '],
       ['d', 'delete (cut)'],
       ['c', 'change (cut & insert)'],
+      ['"+y', 'copy to clipboard'],
       ['Motions', '', { isText: true, commandColorClass: 'font-bold' }],
       [
         <>
@@ -140,7 +138,14 @@ const sections: Section[] = [
       ['x', 'delete char (same as dl)'],
       ['X', 'backspace (same as dh)'],
       ['D', 'delete to line end (same as d$)'],
-      ['C', 'cut & insert to line end (same as c$)']
+      ['C', 'cut & insert to line end (same as c$)'],
+      [
+        'Pasting (No Motion)',
+        '',
+        { isText: true, commandColorClass: 'font-bold !text-sm' }
+      ],
+      ['p/P', 'paste after/before'],
+      ['"+p/"+P', 'paste from clipboard after/before']
     ]
   },
   {
@@ -237,11 +242,14 @@ const sections: Section[] = [
       ],
       ['', '', { isText: true }],
       ['Actions', '', { isText: true, commandColorClass: 'font-bold' }],
-      ['d', 'delete'],
-      ['c', 'cut & insert'],
-      ['y', 'yank (copy)'],
-      ['v', 'visual select'],
-      ['gU', 'uppercase'],
+      [
+        'See "Actions" in Basic Actions',
+        '',
+        {
+          isText: true,
+          commandColorClass: 'font-bold !text-cyan-600 !dark:text-cyan-400'
+        }
+      ],
       ['gu', 'lowercase'],
       ['g~', 'toggle case'],
       ['', '', { isText: true }],
