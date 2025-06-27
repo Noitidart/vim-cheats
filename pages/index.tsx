@@ -1,5 +1,6 @@
 import Tooltip from '@/components/Tooltip';
 import clsx from 'clsx';
+import { useEffect, useState } from 'react';
 
 type TooltipOptions = {
   bulleted?: boolean;
@@ -428,9 +429,28 @@ function renderTooltipContent(items: TooltipItem[]) {
 }
 
 export default function Home() {
+  const [headerVisible, setHeaderVisible] = useState(true);
+
+  useEffect(function hideHeaderAfterMount() {
+    function hideHeaderAfterDelay() {
+      setHeaderVisible(false);
+    }
+
+    const timer = setTimeout(hideHeaderAfterDelay, 3000);
+
+    return function cancelHidingHeaderBeforeUnmount() {
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <main className="p-4">
-      <h1 className="text-2xl font-bold text-center mb-4">
+      <h1
+        className={clsx(
+          'text-2xl font-bold text-center transition-all duration-500 ease-in-out overflow-hidden',
+          headerVisible ? 'opacity-100 mb-4 max-h-10' : 'opacity-0 mb-0 max-h-0'
+        )}
+      >
         Vim Cheat Sheet for Beginners
       </h1>
 
