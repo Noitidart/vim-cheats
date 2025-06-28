@@ -14,6 +14,7 @@ type TooltipItem = string | [string, TooltipOptions];
 type CommandOptions = {
   tooltip?: TooltipItem[];
   commandColorClass?: string;
+  commandSizeClass?: string;
   descriptionClassNames?: string;
   isText?: boolean;
 };
@@ -27,10 +28,22 @@ type Section = {
   commands: Command[];
 };
 
+const titleColorClassNames = {
+  movement: 'text-blue-600 dark:text-blue-400',
+  scrolling: 'text-pink-500 dark:text-pink-400',
+  basicEditing: 'text-green-700 dark:text-green-400',
+  basicActions: 'text-cyan-600 dark:text-cyan-400',
+  visualMode: 'text-yellow-600 dark:text-yellow-400',
+  searchReplace: 'text-purple-700 dark:text-purple-400',
+  files: 'text-red-600 dark:text-red-400',
+  textObjects: 'text-emerald-500 dark:text-emerald-400',
+  surround: 'text-amber-500 dark:text-amber-400'
+};
+
 const sections: Section[] = [
   {
     title: 'Movement',
-    colorClass: 'text-blue-600 dark:text-blue-400',
+    colorClass: titleColorClassNames.movement,
     commands: [
       ['h/j/k/l', '←/↓/↑/→'],
       ['w/b', 'word start →/←'],
@@ -78,7 +91,7 @@ const sections: Section[] = [
   },
   {
     title: 'Scrolling',
-    colorClass: 'text-pink-600 dark:text-pink-400',
+    colorClass: titleColorClassNames.scrolling,
     commands: [
       ['Without Cursor', '', { isText: true, commandColorClass: 'font-bold' }],
       ['Ctrl-e', 'scroll down one line'],
@@ -99,7 +112,7 @@ const sections: Section[] = [
   },
   {
     title: 'Basic Editing',
-    colorClass: 'text-green-600 dark:text-green-400',
+    colorClass: titleColorClassNames.basicEditing,
     commands: [
       ['i/a', 'insert before/after'],
       ['I/A', 'insert at start/end of line'],
@@ -123,12 +136,16 @@ const sections: Section[] = [
   },
   {
     title: 'Basic Actions',
-    colorClass: 'text-cyan-600 dark:text-cyan-400',
+    colorClass: titleColorClassNames.basicActions,
     commands: [
       [
         'Pattern: [action][motion]',
         '',
-        { isText: true, commandColorClass: 'font-bold !text-sm' }
+        {
+          isText: true,
+          commandColorClass: 'font-bold',
+          commandSizeClass: 'text-sm'
+        }
       ],
       ['Actions', '', { isText: true, commandColorClass: 'font-bold' }],
       ['y', 'yank '],
@@ -179,14 +196,18 @@ const sections: Section[] = [
         '',
         {
           isText: true,
-          commandColorClass:
-            'font-bold !text-sm !text-blue-600 dark:!text-blue-400'
+          commandColorClass: `font-bold ${titleColorClassNames.movement}`,
+          commandSizeClass: 'text-sm'
         }
       ],
       [
         'Shortcuts (Special Cases)',
         '',
-        { isText: true, commandColorClass: 'font-bold !text-sm' }
+        {
+          isText: true,
+          commandColorClass: 'font-bold',
+          commandSizeClass: 'text-sm'
+        }
       ],
       ['yy/Y', 'yank line'],
       ['dd', 'cut line'],
@@ -205,7 +226,11 @@ const sections: Section[] = [
       [
         'Pasting (No Motion)',
         '',
-        { isText: true, commandColorClass: 'font-bold !text-sm' }
+        {
+          isText: true,
+          commandColorClass: 'font-bold',
+          commandSizeClass: 'text-sm'
+        }
       ],
       ['p/P', 'paste after/before'],
       [
@@ -231,21 +256,25 @@ const sections: Section[] = [
   },
   {
     title: 'Visual Mode',
-    colorClass: 'text-yellow-600 dark:text-yellow-400',
+    colorClass: titleColorClassNames.visualMode,
     commands: [
       ['V', 'select lines'],
       ['Ctrl-v', 'select block'],
       [
         'Actions',
         '',
-        { isText: true, commandColorClass: 'font-bold !text-sm' }
+        {
+          isText: true,
+          commandColorClass: 'font-bold',
+          commandSizeClass: 'text-sm'
+        }
       ],
       [
         'See Movement',
         '',
         {
           isText: true,
-          commandColorClass: 'font-bold !text-blue-600 dark:!text-blue-400'
+          commandColorClass: `font-bold ${titleColorClassNames.movement}`
         }
       ],
       [
@@ -253,7 +282,7 @@ const sections: Section[] = [
         '',
         {
           isText: true,
-          commandColorClass: 'font-bold !text-pink-600 dark:!text-pink-400'
+          commandColorClass: `font-bold ${titleColorClassNames.scrolling}`
         }
       ],
       [
@@ -261,7 +290,7 @@ const sections: Section[] = [
         '',
         {
           isText: true,
-          commandColorClass: 'font-bold !text-cyan-600 dark:!text-cyan-400'
+          commandColorClass: `font-bold ${titleColorClassNames.basicActions}`
         }
       ],
       [
@@ -284,7 +313,7 @@ const sections: Section[] = [
   },
   {
     title: 'Search & Replace',
-    colorClass: 'text-purple-600 dark:text-purple-400',
+    colorClass: titleColorClassNames.searchReplace,
     commands: [
       ['/word', 'search forward'],
       ['?word', 'search backward'],
@@ -297,7 +326,7 @@ const sections: Section[] = [
   },
   {
     title: 'Files',
-    colorClass: 'text-red-600 dark:text-red-400',
+    colorClass: titleColorClassNames.files,
     commands: [
       [':w', 'save file'],
       [':q', 'quit vim'],
@@ -323,12 +352,16 @@ const sections: Section[] = [
   },
   {
     title: 'Text Objects',
-    colorClass: 'text-orange-600 dark:text-orange-400',
+    colorClass: titleColorClassNames.textObjects,
     commands: [
       [
         'Pattern: [action][scope][object]',
         '',
-        { isText: true, commandColorClass: 'font-bold !text-sm' }
+        {
+          isText: true,
+          commandColorClass: 'font-bold',
+          commandSizeClass: 'text-sm'
+        }
       ],
       ['', '', { isText: true }],
       ['Actions', '', { isText: true, commandColorClass: 'font-bold' }],
@@ -337,7 +370,7 @@ const sections: Section[] = [
         '',
         {
           isText: true,
-          commandColorClass: 'font-bold !text-cyan-600 !dark:text-cyan-400'
+          commandColorClass: `font-bold ${titleColorClassNames.basicActions}`
         }
       ],
       ['gu', 'lowercase'],
@@ -416,7 +449,7 @@ const sections: Section[] = [
         />
       </>
     ),
-    colorClass: 'text-amber-600 dark:text-amber-400',
+    colorClass: titleColorClassNames.surround,
     commands: [
       ['cs[old][new]', 'change [old] surrounder to [new]'],
       ['ds[surrounder]', 'delete [surrounder]'],
@@ -431,7 +464,7 @@ const sections: Section[] = [
         '',
         {
           isText: true,
-          commandColorClass: 'font-bold !text-orange-600 dark:!text-orange-400'
+          commandColorClass: `font-bold ${titleColorClassNames.textObjects}`
         }
       ],
       ['Examples', '', { isText: true, commandColorClass: 'font-bold' }],
@@ -570,17 +603,17 @@ export default function Home() {
               {section.commands.map((cmd, cmdIndex) => {
                 const [command, description, options = {}] = cmd;
                 const isText = options.isText || false;
-                const commandColorClass = options.commandColorClass || '';
+                const commandColorClass =
+                  options.commandColorClass ||
+                  'text-gray-700 dark:text-gray-300';
+                const commandSizeClass = options.commandSizeClass || 'text-xs';
                 const tooltip = options.tooltip;
 
                 if (isText) {
                   return (
                     <div
                       key={cmdIndex}
-                      className={clsx(
-                        'text-gray-700 dark:text-gray-300 text-xs',
-                        commandColorClass
-                      )}
+                      className={clsx(commandSizeClass, commandColorClass)}
                     >
                       {command}
                     </div>
