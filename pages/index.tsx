@@ -1,3 +1,4 @@
+import LinkBadge from '@/components/LinkBadge';
 import Tooltip from '@/components/Tooltip';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
@@ -20,7 +21,7 @@ type CommandOptions = {
 type Command = [React.ReactNode, React.ReactNode, CommandOptions?];
 
 type Section = {
-  title: string;
+  title: React.ReactNode;
   colorClass: string;
   tooltip?: TooltipItem[];
   commands: Command[];
@@ -404,11 +405,40 @@ const sections: Section[] = [
     ]
   },
   {
-    title: 'Other',
-    colorClass: 'text-teal-600 dark:text-teal-400',
+    title: (
+      <>
+        <span className="align-middle">Surround</span>
+
+        <LinkBadge
+          label="Extension"
+          href="https://github.com/tpope/vim-surround"
+          color="amber"
+        />
+      </>
+    ),
+    colorClass: 'text-amber-600 dark:text-amber-400',
     commands: [
-      [':set number', 'show line numbers'],
-      [':set nonumber', 'hide line numbers']
+      ['cs[old][new]', 'change [old] surrounder to [new]'],
+      ['ds[surrounder]', 'delete [surrounder]'],
+      ['ys[motion][surrounder]', 'add [surrounder]'],
+      ['S[surrounder]', 'add around visual selection'],
+      ['', '', { isText: true }],
+      ['Surrounders', '', { isText: true, commandColorClass: 'font-bold' }],
+      ['"/\'/`', 'quotes'],
+      [')/]/}', 'parens/brackets/braces'],
+      ['(/{/[', 'with spaces inside'],
+      ['t', 'tag (HTML/XML)'],
+      ['w', 'word'],
+      ['W', 'word with punctuation'],
+      ['s', 'sentence'],
+      ['p', 'paragraph'],
+      ['', '', { isText: true }],
+      ['Examples', '', { isText: true, commandColorClass: 'font-bold' }],
+      ['ysiw<p class="red">', 'surround word'],
+      ['viwS<p class="red">', 'surround selected word'],
+      ['yss)', 'surround sentence (typically line)'],
+      ["cs'<q>", 'change quotes to <q>'],
+      ['cst"', 'change tags to "']
     ]
   }
 ];
