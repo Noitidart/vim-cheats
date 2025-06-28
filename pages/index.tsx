@@ -131,7 +131,7 @@ const sections: Section[] = [
       ['>>/<<', 'indent/unindent'],
       ['==', 'auto-indent line'],
       ['J', 'join lines'],
-      ['~', 'toggle case']
+      ['~', 'toggle case and move right']
     ]
   },
   {
@@ -373,7 +373,7 @@ const sections: Section[] = [
           commandColorClass: `font-bold ${titleColorClassNames.basicActions}`
         }
       ],
-      ['gu', 'lowercase'],
+      ['gu/U', 'lower/upper-case'],
       ['g~', 'toggle case'],
       ['', '', { isText: true }],
       ['Scopes', '', { isText: true, commandColorClass: 'font-bold' }],
