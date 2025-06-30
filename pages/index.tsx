@@ -472,7 +472,8 @@ const sections: Section[] = [
       ['viwS<p class="red">', 'surround selected word'],
       ['yss)', 'surround sentence (typically line)'],
       ["cs'<q>", 'change quotes to <q>'],
-      ['cst"', 'change tags to "']
+      ['cst"', 'change tags to "'],
+      ['cst<span>', 'change tags to <span>']
     ]
   }
 ];
