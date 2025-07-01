@@ -185,6 +185,8 @@ const sections: Section[] = [
           ]
         }
       ],
+      ['gu/U', 'lower/upper-case'],
+      ['g~', 'toggle case'],
       ['Motions', '', { isText: true, commandColorClass: 'font-bold' }],
       [
         <>
@@ -218,11 +220,10 @@ const sections: Section[] = [
           tooltip: ["Keeps the line's indentation"]
         }
       ],
-      ['s', 'substitute char (same as cl)'],
-      ['x', 'cut char (same as dl)'],
-      ['X', 'backspace (same as dh)'],
-      ['D', 'cut to line end (same as d$)'],
-      ['C', 'cut & insert to line end (same as c$)'],
+      ['s/cl', 'substitute char'],
+      ['x/X (dl/dh)', 'cut char right/left'],
+      ['D/d$', 'cut to line end'],
+      ['C/c$', 'cut & insert to line end'],
       [
         'Pasting (No Motion)',
         '',
@@ -373,8 +374,6 @@ const sections: Section[] = [
           commandColorClass: `font-bold ${titleColorClassNames.basicActions}`
         }
       ],
-      ['gu/U', 'lower/upper-case'],
-      ['g~', 'toggle case'],
       ['', '', { isText: true }],
       ['Scopes', '', { isText: true, commandColorClass: 'font-bold' }],
       ['i', 'inside (exclusive)'],
