@@ -450,10 +450,10 @@ const sections: Section[] = [
     ),
     colorClass: titleColorClassNames.surround,
     commands: [
-      ['cs[old][new]', 'change [old] surrounder to [new]'],
+      ['cs[old][new]', 'change [old] to [new]'],
       ['ds[surrounder]', 'delete [surrounder]'],
-      ['ys[motion][surrounder]', 'add [surrounder]'],
-      ['S[surrounder]', 'add around visual selection'],
+      ['ys[motion][surrounder]', 'add'],
+      ['S[surrounder]', 'add around visual'],
       ['', '', { isText: true }],
       ['Surrounders', '', { isText: true, commandColorClass: 'font-bold' }],
       ['"/\'/`/)/]/}', 'itself'],
