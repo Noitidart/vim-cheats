@@ -335,7 +335,13 @@ const sections: Section[] = [
       ['n/N', 'next/prev match'],
       ['*/#', 'next/prev word under cursor'],
       [':noh', 'clear highlights'],
-      [':%s/old/new/g', 'replace all'],
+      [':%s/old/new/g', 'replace all', { tooltip: [
+        'The g flag means "global" - without it, only the first match on each line is replaced',
+        ['Using a different delimiter:', { bulleted: false, bolded: true }],
+        'When text contains many forward slashes (like paths), you can use a different delimiter instead of escaping:',
+        '<kbd>:%s#/home/team#/home/team/Downloads#g</kbd>',
+        'Common delimiter alternatives: <kbd>#</kbd>, <kbd>_</kbd>, <kbd>@</kbd>'
+      ] }],
       [':%s/old/new/gc', 'replace with confirm']
     ]
   },
