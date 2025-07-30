@@ -548,12 +548,7 @@ const sections: Section[] = [
             '<kbd>:%y</kbd> - copy all lines',
             '<kbd>:%y+</kbd> - copy all lines to system clipboard',
             '<kbd>:%d</kbd> - delete all lines',
-            '<kbd>:%s/old/new/g</kbd> - replace all occurrences',
-            ['Other ranges:', { bulleted: false, bolded: true }],
-            '<kbd>:.</kbd> - current line only',
-            '<kbd>:$</kbd> - last line',
-            '<kbd>:1,10</kbd> - lines 1 to 10',
-            '<kbd>:.,+5</kbd> - current line plus next 5'
+            '<kbd>:%s/old/new/g</kbd> - see "Search & Replace"'
           ]
         }
       ]
