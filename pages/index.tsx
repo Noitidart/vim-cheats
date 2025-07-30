@@ -309,6 +309,7 @@ const sections: Section[] = [
         }
       ],
       ['>/<', 'indent/unindent'],
+      ['=', 'auto-indent'],
       ['Esc', 'exit visual mode']
     ]
   },
