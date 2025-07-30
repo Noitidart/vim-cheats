@@ -132,7 +132,10 @@ const sections: Section[] = [
       ['>>/<<', 'indent/unindent'],
       ['==', 'auto-indent line'],
       ['J', 'join lines'],
-      ['~', 'toggle case and move right']
+      ['~', 'toggle case and move right'],
+      [':%y', 'copy all'],
+      [':%y+', 'copy all to system'],
+      [':%d', 'delete all']
     ]
   },
   {
