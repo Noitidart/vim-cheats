@@ -132,10 +132,7 @@ const sections: Section[] = [
       ['>>/<<', 'indent/unindent'],
       ['==', 'auto-indent line'],
       ['J', 'join lines'],
-      ['~', 'toggle case and move right'],
-      [':%y', 'copy all'],
-      [':%y+', 'copy all to system'],
-      [':%d', 'delete all']
+      ['~', 'toggle case and move right']
     ]
   },
   {
@@ -510,6 +507,25 @@ const sections: Section[] = [
         {
           tooltip: [
             'Also sets indent width for <kbd>>></kbd> and <kbd><<</kbd> (<kbd>><</kbd> and <kbd><</kbd> in visual mode) operations unless explicitly configured with <kbd>:set shiftwidth=#</kbd>'
+          ]
+        }
+      ],
+      [
+        ':% [command]',
+        'apply command to all lines',
+        {
+          tooltip: [
+            '<kbd>%</kbd> is a range that means "all lines in the file"',
+            ['Common uses:', { bulleted: false, bolded: true }],
+            '<kbd>:%y</kbd> - copy all lines',
+            '<kbd>:%y+</kbd> - copy all lines to system clipboard',
+            '<kbd>:%d</kbd> - delete all lines',
+            '<kbd>:%s/old/new/g</kbd> - replace all occurrences',
+            ['Other ranges:', { bulleted: false, bolded: true }],
+            '<kbd>:.</kbd> - current line only',
+            '<kbd>:$</kbd> - last line',
+            '<kbd>:1,10</kbd> - lines 1 to 10',
+            '<kbd>:.,+5</kbd> - current line plus next 5'
           ]
         }
       ]
