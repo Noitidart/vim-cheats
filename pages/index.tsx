@@ -335,14 +335,36 @@ const sections: Section[] = [
       ['n/N', 'next/prev match'],
       ['*/#', 'next/prev word under cursor'],
       [':noh', 'clear highlights'],
-      [':%s/old/new/g', 'replace all', { tooltip: [
-        'The g flag means "global" - without it, only the first match on each line is replaced',
-        ['Using a different delimiter:', { bulleted: false, bolded: true }],
-        'When text contains many forward slashes (like paths), you can use a different delimiter instead of escaping:',
-        '<kbd>:%s#/home/team#/home/team/Downloads#g</kbd>',
-        'Common delimiter alternatives: <kbd>#</kbd>, <kbd>_</kbd>, <kbd>@</kbd>'
-      ] }],
-      [':%s/old/new/gc', 'replace with confirm']
+      [
+        ':%s/old/new/g',
+        'replace all',
+        {
+          tooltip: [
+            'The g flag means "global" - without it, only the first match on each line is replaced',
+            ['Using a different delimiter:', { bulleted: false, bolded: true }],
+            'When text contains many forward slashes (like paths), you can use a different delimiter instead of escaping:',
+            '<kbd>:%s#/home/team#/home/team/Downloads#g</kbd>',
+            'Common delimiter alternatives: <kbd>#</kbd>, <kbd>_</kbd>, <kbd>@</kbd>'
+          ]
+        }
+      ],
+      [
+        ':%s/old/new/gc',
+        'replace with confirm',
+        {
+          tooltip: [
+            [
+              'You will be prompted to reply for each match:',
+              { bulleted: false, bolded: true }
+            ],
+            '<kbd>y</kbd> - yes',
+            '<kbd>n</kbd> - no',
+            '<kbd>a</kbd> - all',
+            '<kbd>q</kbd> - quit without substituting, but it does not undo once you have already substituted text',
+            '<kbd>l</kbd> - substitute this and exit (think of "last")'
+          ]
+        }
+      ]
     ]
   },
   {
