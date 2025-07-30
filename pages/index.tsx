@@ -229,6 +229,18 @@ const sections: Section[] = [
       ['D/d$', 'cut to line end'],
       ['C/c$', 'cut & insert to line end'],
       [
+        '"_d',
+        'delete to black hole',
+        {
+          tooltip: [
+            'The black hole register prevents deleted text from overwriting the default register',
+            'Example: <kbd>"_dd</kbd> deletes the line without storing it',
+            'This allows you to paste previously yanked text without it being replaced',
+            'Works with any delete operation: <kbd>"_d</kbd>, <kbd>"_x</kbd>, <kbd>"_c</kbd>, etc.'
+          ]
+        }
+      ],
+      [
         'Pasting (No Motion)',
         '',
         {
