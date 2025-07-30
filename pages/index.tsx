@@ -37,7 +37,8 @@ const titleColorClassNames = {
   searchReplace: 'text-purple-700 dark:text-purple-400',
   files: 'text-red-600 dark:text-red-400',
   textObjects: 'text-emerald-500 dark:text-emerald-400',
-  surround: 'text-amber-500 dark:text-amber-400'
+  surround: 'text-amber-500 dark:text-amber-400',
+  miscellaneous: 'text-indigo-600 dark:text-indigo-400'
 };
 
 const sections: Section[] = [
@@ -474,6 +475,29 @@ const sections: Section[] = [
       ["cs'<q>", 'change quotes to <q>'],
       ['cst"', 'change tags to "'],
       ['cst<span>', 'change tags to <span>']
+    ]
+  },
+  {
+    title: 'Miscellaneous',
+    colorClass: titleColorClassNames.miscellaneous,
+    commands: [
+      [':set nu/nonu', 'toggle line numbers'],
+      [
+        ':set ai/noai',
+        'toggle auto-indent',
+        {
+          tooltip: ["Copies current line's indentation to new line"]
+        }
+      ],
+      [
+        ':set tabstop=#',
+        'Tab key # spaces',
+        {
+          tooltip: [
+            'Also sets indent width for <kbd>>></kbd> and <kbd><<</kbd> (<kbd>><</kbd> and <kbd><</kbd> in visual mode) operations unless explicitly configured with <kbd>:set shiftwidth=#</kbd>'
+          ]
+        }
+      ]
     ]
   }
 ];
