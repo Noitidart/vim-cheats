@@ -31,8 +31,8 @@ type Section = {
 const titleColorClassNames = {
   movement: 'text-blue-600 dark:text-blue-400',
   scrolling: 'text-pink-500 dark:text-pink-400',
-  basicEditing: 'text-green-700 dark:text-green-400',
-  basicActions: 'text-cyan-600 dark:text-cyan-400',
+  editing: 'text-green-700 dark:text-green-400',
+  editingExtra: 'text-cyan-600 dark:text-cyan-400',
   visualMode: 'text-yellow-600 dark:text-yellow-400',
   searchReplace: 'text-purple-700 dark:text-purple-400',
   files: 'text-red-600 dark:text-red-400',
@@ -112,8 +112,8 @@ const sections: Section[] = [
     ]
   },
   {
-    title: 'Basic Editing',
-    colorClass: titleColorClassNames.basicEditing,
+    title: 'Editing',
+    colorClass: titleColorClassNames.editing,
     commands: [
       ['i/a', 'insert before/after'],
       ['I/A', 'insert at start/end of line'],
@@ -132,13 +132,27 @@ const sections: Section[] = [
       ['>>/<<', 'indent/unindent'],
       ['==', 'auto-indent line'],
       ['J', 'join lines'],
-      ['~', 'toggle case and move right']
-    ]
-  },
-  {
-    title: 'Basic Actions',
-    colorClass: titleColorClassNames.basicActions,
-    commands: [
+      ['~', 'toggle case and move right'],
+      ['p/P', 'paste after/before'],
+      [
+        '"+p/P',
+        'paste from clipboard after/before',
+        {
+          tooltip: [
+            [
+              'Warning about native paste (Cmd+V on macOS, Ctrl+V on Windows/Linux):',
+              { bulleted: false, bolded: true }
+            ],
+            'In Normal mode: Each character acts as a command!',
+            'In Insert mode: Works but can mess up formatting',
+            ['Best practices:', { bulleted: false, bolded: true }],
+            'Use <kbd>"+p</kbd> in Normal mode (recommended)',
+            'Or enter Insert mode first, then <kbd>:set paste</kbd>',
+            'Use native paste, then <kbd>:set nopaste</kbd>',
+            'This prevents auto-indent issues'
+          ]
+        }
+      ],
       [
         'Pattern: [action][motion]',
         '',
@@ -202,16 +216,13 @@ const sections: Section[] = [
           commandColorClass: `font-bold ${titleColorClassNames.movement}`,
           commandSizeClass: 'text-sm'
         }
-      ],
-      [
-        'Shortcuts (Special Cases)',
-        '',
-        {
-          isText: true,
-          commandColorClass: 'font-bold',
-          commandSizeClass: 'text-sm'
-        }
-      ],
+      ]
+    ]
+  },
+  {
+    title: 'Editing Common/Special Cases',
+    colorClass: titleColorClassNames.editingExtra,
+    commands: [
       ['yy/Y', 'yank line'],
       ['dd', 'cut line'],
       [
@@ -234,35 +245,6 @@ const sections: Section[] = [
             'Example: <kbd>"_dd</kbd> deletes the line without storing it',
             'This allows you to paste previously yanked text without it being replaced',
             'Works with any delete operation: <kbd>"_d</kbd>, <kbd>"_x</kbd>, <kbd>"_c</kbd>, etc.'
-          ]
-        }
-      ],
-      [
-        'Pasting (No Motion)',
-        '',
-        {
-          isText: true,
-          commandColorClass: 'font-bold',
-          commandSizeClass: 'text-sm'
-        }
-      ],
-      ['p/P', 'paste after/before'],
-      [
-        '"+p/P',
-        'paste from clipboard after/before',
-        {
-          tooltip: [
-            [
-              'Warning about native paste (Cmd+V on macOS, Ctrl+V on Windows/Linux):',
-              { bulleted: false, bolded: true }
-            ],
-            'In Normal mode: Each character acts as a command!',
-            'In Insert mode: Works but can mess up formatting',
-            ['Best practices:', { bulleted: false, bolded: true }],
-            'Use <kbd>"+p</kbd> in Normal mode (recommended)',
-            'Or enter Insert mode first, then <kbd>:set paste</kbd>',
-            'Use native paste, then <kbd>:set nopaste</kbd>',
-            'This prevents auto-indent issues'
           ]
         }
       ]
@@ -300,11 +282,11 @@ const sections: Section[] = [
         }
       ],
       [
-        'See "Actions" in Basic Actions',
+        'See "Actions" in Editing (use without motion)',
         '',
         {
           isText: true,
-          commandColorClass: `font-bold ${titleColorClassNames.basicActions}`
+          commandColorClass: `font-bold ${titleColorClassNames.editing}`
         }
       ],
       [
@@ -409,11 +391,11 @@ const sections: Section[] = [
       ['', '', { isText: true }],
       ['Actions', '', { isText: true, commandColorClass: 'font-bold' }],
       [
-        'See "Actions" in Basic Actions',
+        'See "Actions" in Editing',
         '',
         {
           isText: true,
-          commandColorClass: `font-bold ${titleColorClassNames.basicActions}`
+          commandColorClass: `font-bold ${titleColorClassNames.editing}`
         }
       ],
       ['', '', { isText: true }],
