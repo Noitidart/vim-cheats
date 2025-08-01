@@ -504,6 +504,7 @@ const sections: Section[] = [
     colorClass: titleColorClassNames.miscellaneous,
     commands: [
       [':set nu/nonu', 'toggle line numbers'],
+      [':set rnu/nornu', 'relative line numbers'],
       [
         ':set ai/noai',
         'toggle auto-indent',
