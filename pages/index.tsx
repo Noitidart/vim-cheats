@@ -248,6 +248,18 @@ const sections: Section[] = [
             'Works with any delete operation: <kbd>"_d[motion]</kbd>, <kbd>"_x</kbd>, <kbd>"_c[motion]</kbd>, etc.'
           ]
         }
+      ],
+      [
+        '"0p',
+        'paste from yank register',
+        {
+          tooltip: [
+            'This register is not affected by delete operations',
+            'With this, you can yank something, then do multiple deletes to clean up, and still paste the original yanked text',
+            'Example: yank a word with <kbd>yiw</kbd>, delete several lines with <kbd>dd</kbd>, then paste the original word with <kbd>"0p</kbd>',
+            'The <kbd>0</kbd> register always contains the last yanked text (not deleted text)'
+          ]
+        }
       ]
     ]
   },
