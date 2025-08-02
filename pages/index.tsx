@@ -547,7 +547,8 @@ const sections: Section[] = [
             '<kbd>:%s/old/new/g</kbd> - see "Search & Replace"'
           ]
         }
-      ]
+      ],
+      [':reg', 'view all registers']
     ]
   }
 ];
