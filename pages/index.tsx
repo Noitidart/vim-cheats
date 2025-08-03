@@ -345,7 +345,7 @@ const sections: Section[] = [
       ],
       [
         ':%s/old/new/gc',
-        'replace with confirm',
+        'with confirm',
         {
           tooltip: [
             [
@@ -527,7 +527,7 @@ const sections: Section[] = [
       ],
       [
         ':set tabstop=#',
-        'Tab key # spaces',
+        'tab key # spaces',
         {
           tooltip: [
             'Also sets indent width for <kbd>>></kbd> and <kbd><<</kbd> (<kbd>><</kbd> and <kbd><</kbd> in visual mode) operations unless explicitly configured with <kbd>:set shiftwidth=#</kbd>'
@@ -536,7 +536,7 @@ const sections: Section[] = [
       ],
       [
         ':% [command]',
-        'apply command to all lines',
+        '[command] all',
         {
           tooltip: [
             '<kbd>%</kbd> is a range that means "all lines in the file"',
