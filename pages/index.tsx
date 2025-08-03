@@ -325,17 +325,21 @@ const sections: Section[] = [
     title: 'Search & Replace',
     colorClass: titleColorClassNames.searchReplace,
     commands: [
-      ['/word', 'search forward'],
-      ['?word', 'search backward'],
+      ['/pattern', 'search forward'],
+      ['?pattern', 'search backward'],
       ['n/N', 'next/prev match'],
       ['*/#', 'next/prev word under cursor'],
       [':noh', 'clear highlights'],
       [
-        ':%s/old/new/g',
+        ':%s/pattern/new/g',
         'replace all',
         {
           tooltip: [
-            'The g flag means "global" - without it, only the first match on each line is replaced',
+            ['Flags', { bulleted: false, bolded: true }],
+            '<kbd>g</kbd> - global (without this only the first match on each line is replaced)',
+            '<kbd>I</kbd> - case sensitive (by default it is case insensitive)',
+            '<kbd>w</kbd> - whole word',
+            '<kbd>c</kbd> - confirm mode (see next line details)',
             ['Using a different delimiter:', { bulleted: false, bolded: true }],
             'When text contains many forward slashes (like paths), you can use a different delimiter instead of escaping:',
             '<kbd>:%s#/home/team#/home/team/Downloads#g</kbd>',
@@ -344,7 +348,7 @@ const sections: Section[] = [
         }
       ],
       [
-        ':%s/old/new/gc',
+        ':%s/pattern/new/gc',
         'with confirm',
         {
           tooltip: [
@@ -357,6 +361,116 @@ const sections: Section[] = [
             '<kbd>a</kbd> - all',
             '<kbd>q</kbd> - quit without substituting, but it does not undo once you have already substituted text',
             '<kbd>l</kbd> - substitute this and exit (think of "last")'
+          ]
+        }
+      ],
+      [
+        'Regex',
+        '',
+        {
+          isText: true,
+          commandColorClass: 'font-bold',
+          commandSizeClass: 'text-sm',
+          tooltip: [
+            'This applies to both search and also to replace',
+            ['Non-greedy matching:', { bulleted: false, bolded: true }],
+            'In most regex engines (JavaScript, Python, etc.):',
+            [
+              ' • <kbd>.*?</kbd> - non-greedy (matches as little as possible)',
+              { bulleted: false }
+            ],
+            [' • <kbd>.+?</kbd> - non-greedy one or more', { bulleted: false }],
+            "In Vim, it's different:",
+            [
+              ' • <kbd>.\\{-}</kbd> - non-greedy version of <kbd>.*</kbd>',
+              { bulleted: false }
+            ],
+            [
+              ' • <kbd>.\\{-1,}</kbd> - non-greedy version of <kbd>.+</kbd>',
+              { bulleted: false }
+            ],
+            [
+              ' • <kbd>.\\{-2,5}</kbd> - non-greedy version of <kbd>.\\{2,5}</kbd>',
+              { bulleted: false }
+            ],
+            'Example: <kbd>:%s/<div>.\\{-}<\\/div>//g</kbd> matches the shortest content between div tags'
+          ]
+        }
+      ],
+      ['', '', { isText: true }],
+      ['Pattern', '', { isText: true, commandColorClass: 'font-bold' }],
+      [
+        '. * $ ^ [ ] ~',
+        'special',
+        {
+          tooltip: [
+            'Escape these to use as literals. Similar to other regex engines (except for <kbd>~</kbd>)',
+            'Example: <kbd>:%s/\./period/g</kbd> replaces all dots with "period"',
+            [
+              '<kbd>~</kbd> is unique to Vim:',
+              { bulleted: false, bolded: true }
+            ],
+            'Matches the last replacement string',
+            'Example: <kbd>:%s/hello/world/g</kbd>',
+            [
+              ' • <kdb>:%s/~/mars/g</kdb> will replace all "world" to "mars"',
+              { bulleted: false }
+            ],
+            [' • <kbd>/~</kbd> will search for "mars"', { bulleted: false }],
+            'Useful for finding what you just replaced'
+          ]
+        }
+      ],
+      [
+        '+ ? { } ( ) | < >',
+        'NOT special',
+        {
+          tooltip: [
+            'Escape to get expected regex behavior',
+            'Unlike most regex engines, these are literal by default in Vim',
+            'Example: <kbd>\\d\\+</kbd> matches one or more digits'
+          ]
+        }
+      ],
+      [
+        '/\\vpattern',
+        'everything special',
+        {
+          tooltip: [
+            'With <kbd>\\v</kbd>, all characters except letters, digits, and underscore are special',
+            'Makes Vim regex behave more like Perl/Python regex',
+            'Example: <kbd>/\\v(foo|bar)\s+(\\d+)</kbd>',
+            'The non-special characters in Vim now behave as special regex characters without escaping: <kbd>+ ? { } ( ) | < ></kbd>'
+          ]
+        }
+      ],
+      ['', '', { isText: true }],
+      ['New Replacement', '', { isText: true, commandColorClass: 'font-bold' }],
+      [
+        '\\1, \\2, etc',
+        'backreferences',
+        {
+          tooltip: [
+            'Example: <kbd>:%s/\\(\\w\\+\\) \\(\\w\\+\\)/\\2 \\1/g</kbd> to swap words'
+          ]
+        }
+      ],
+      [
+        '&',
+        'entire matched text',
+        {
+          tooltip: [
+            'Example: <kbd>:%s/word/[&]/g</kbd> wraps "word" in brackets'
+          ]
+        }
+      ],
+      [
+        '\\n',
+        'match newline',
+        {
+          tooltip: [
+            'Example: <kbd>:%s/^$\\n//g</kbd> deletes blank lines',
+            'Without it, line content is simply removed/blanked, without removing the lines.'
           ]
         }
       ]
