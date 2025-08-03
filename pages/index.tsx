@@ -800,6 +800,36 @@ export default function Home() {
                 const tooltip = options.tooltip;
 
                 if (isText) {
+                  if (tooltip) {
+                    return (
+                      <div
+                        key={cmdIndex}
+                        className="inline-flex items-center gap-1"
+                      >
+                        <span
+                          className={clsx(commandSizeClass, commandColorClass)}
+                        >
+                          {command}
+                        </span>
+                        <Tooltip content={renderTooltipContent(tooltip)}>
+                          <svg
+                            className="w-4 h-4 text-blue-600 dark:text-blue-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                        </Tooltip>
+                      </div>
+                    );
+                  }
                   return (
                     <div
                       key={cmdIndex}
