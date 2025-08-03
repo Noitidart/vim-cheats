@@ -270,12 +270,11 @@ const sections: Section[] = [
       ['V', 'select lines'],
       ['Ctrl-v', 'select block'],
       [
-        'Actions',
+        'Actions in Visual Mode',
         '',
         {
           isText: true,
-          commandColorClass: 'font-bold',
-          commandSizeClass: 'text-sm'
+          commandColorClass: 'font-bold'
         }
       ],
       [
@@ -318,6 +317,8 @@ const sections: Section[] = [
       ],
       ['>/<', 'indent/unindent'],
       ['=', 'auto-indent'],
+      ['I', 'insert at start on all lines'],
+      ['A', 'insert at end on all lines'],
       ['Esc', 'exit visual mode']
     ]
   },
