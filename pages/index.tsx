@@ -444,7 +444,16 @@ const sections: Section[] = [
           ]
         }
       ],
-      ['', '', { isText: true }],
+      [
+        '\\n',
+        'match newline',
+        {
+          tooltip: [
+            'Example: <kbd>:%s/^$\\n//g</kbd> deletes blank lines',
+            'Without it, line content is simply removed/blanked, without removing the lines.'
+          ]
+        }
+      ],
       ['New Replacement', '', { isText: true, commandColorClass: 'font-bold' }],
       [
         '\\1, \\2, etc',
@@ -461,16 +470,6 @@ const sections: Section[] = [
         {
           tooltip: [
             'Example: <kbd>:%s/word/[&]/g</kbd> wraps "word" in brackets'
-          ]
-        }
-      ],
-      [
-        '\\n',
-        'match newline',
-        {
-          tooltip: [
-            'Example: <kbd>:%s/^$\\n//g</kbd> deletes blank lines',
-            'Without it, line content is simply removed/blanked, without removing the lines.'
           ]
         }
       ]
