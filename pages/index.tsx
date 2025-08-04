@@ -136,7 +136,7 @@ const sections: Section[] = [
       ['p/P', 'paste after/before'],
       [
         '"+p/P',
-        'paste from clipboard after/before',
+        'system paste after/before',
         {
           tooltip: [
             [
