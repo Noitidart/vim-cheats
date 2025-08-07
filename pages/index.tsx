@@ -45,15 +45,25 @@ const sections: Section[] = [
   {
     title: 'Movement',
     colorClass: titleColorClassNames.movement,
+    tooltip: ['Motion command compatible.'],
     commands: [
       ['h/j/k/l', '←/↓/↑/→'],
+      [
+        '[#]j/[#]k',
+        '↓/↑ [#] lines',
+        {
+          tooltip: [
+            'Unlike <kbd>#g/#GG</kbd> this does not go to first non-blank but instead maintains cursor position.',
+            'If the line jumped to is shorter then starting line, the cursor will be at the end of the line.'
+          ]
+        }
+      ],
       ['w/b', 'word start →/←'],
       ['e/ge', 'word end →/←'],
       ['W/B', 'spaced word start →/←'],
       ['E/gE', 'spaced word end →/←'],
       ['0/$', 'line start/end'],
       ['^/g_', 'first/last non-blank on line'],
-      ['gg/G', 'file top/bottom'],
       [
         '(/)',
         'sentences ←/→',
@@ -74,41 +84,65 @@ const sections: Section[] = [
           ]
         }
       ],
+      // // I don't use this ever, all it does in my code files I edit is jump
+      // // to the start/end of the file.
+      // [
+      //   '[[/]]',
+      //   'sections ←/→',
+      //   {
+      //     tooltip: [
+      //       'In TypeScript/React: often jumps to file start/end',
+      //       'Designed for C where { starts functions at column 0',
+      //       'Consider using { } for code navigation instead'
+      //     ]
+      //   }
+      // ],
       [
-        '[[/]]',
-        'sections ←/→',
+        'gg/G',
+        'file top/bottom',
+        {
+          tooltip: ['Goes to first non-blank on line']
+        }
+      ],
+      [
+        '[#]gg/[#]G',
+        'go to line [#]',
         {
           tooltip: [
-            'In TypeScript/React: often jumps to file start/end',
-            'Designed for C where { starts functions at column 0',
-            'Consider using { } for code navigation instead'
+            'Goes to first non-blank on line',
+            'Unlike <kbd>#j</kbd>/<kbd>#k</kbd> which tries to maintain cursor position instead of going to first blank'
           ]
         }
       ],
-      ['f/F[char]', 'to (inclusive) char →/←'],
-      ['t/T[char]', 'till (exclusive) char →/←'],
-      [';/,', 'repeat [char] →/←']
+      ['H/M/L', 'top/middle/bottom of screen'],
+      ['%', 'matching bracket'],
+      ['f/F[char]', 'to (inclusive) [char] →/←'],
+      ['t/T[char]', 'till (exclusive) [char] →/←'],
+      [
+        ';/,',
+        'repeat [char] →/←',
+        {
+          tooltip: [
+            'Only for <kbd>f/F[char]</kbd> or <kbd>t/T[char]</kbd> commands'
+          ]
+        }
+      ]
     ]
   },
   {
     title: 'Scrolling',
     colorClass: titleColorClassNames.scrolling,
+    tooltip: ['Cannot be used as motion commands'],
     commands: [
       ['Without Cursor', '', { isText: true, commandColorClass: 'font-bold' }],
-      ['Ctrl-e', 'scroll down one line'],
-      ['Ctrl-y', 'scroll up one line'],
+      ['Ctrl-e/Ctrl-y', 'one line ↓/↑'],
       ['zt', 'current line to top'],
       ['zz', 'center current line'],
       ['zb', 'current line to bottom'],
-      ['', '', { isText: true }],
       ['With Cursor', '', { isText: true, commandColorClass: 'font-bold' }],
-      ['Ctrl-d/u', 'half page ↓/↑'],
-      ['Ctrl-f/b', 'full page ↓/↑'],
-      ['H/M/L', 'top/middle/bottom of screen'],
-      ['[number]G', 'go to line [number]'],
-      [':[number]', 'go to line [number]'],
-      ['Ctrl-o/Ctrl-i', 'older/newer position'],
-      ['%', 'matching bracket']
+      ['Ctrl-d/Ctrl-u', 'half page ↓/↑'],
+      ['Ctrl-f/Ctrl-b', 'full page ↓/↑'],
+      ['Ctrl-o/Ctrl-i', 'older/newer position']
     ]
   },
   {
@@ -224,7 +258,31 @@ const sections: Section[] = [
     colorClass: titleColorClassNames.editingExtra,
     commands: [
       ['yy/Y', 'yank line'],
-      ['dd', 'cut line'],
+      [
+        'dd',
+        'cut line',
+        {
+          tooltip: [
+            '<kbd>#dj</kbd> is same as <kbd>(#+1)dd</kbd>, for example:',
+            [' • <kbd>2dd</kbd> is same as <kbd>dj</kbd>', { bulleted: false }],
+            [
+              ' • <kbd>3dd</kbd> is same as <kbd>2dj</kbd>',
+              { bulleted: false }
+            ],
+            [' • <kbd>4dd</kbd> is same as <kbd>3dj</kbd>', { bulleted: false }]
+          ]
+        }
+      ],
+      [
+        '#dk/#dj',
+        'cut line & # lines ↓/↑',
+        {
+          tooltip: [
+            '<kbd>#</kbd> is optional (default: 1)',
+            "<kbd>#dj</kbd> can be recreated with <kbd>#dd</kbd> - see it's tooltip"
+          ]
+        }
+      ],
       [
         'cc/S',
         'cut & insert line',
@@ -245,7 +303,7 @@ const sections: Section[] = [
             'This prevents overwriting the currently yanked text.',
             'Example: <kbd>"_dd</kbd> deletes the line without storing it',
             'This allows you to paste previously yanked text without it being replaced',
-            'Works with any delete operation: <kbd>"_d[motion]</kbd>, <kbd>"_x</kbd>, <kbd>"_c[motion]</kbd>, etc.'
+            'Works with any cut operation: <kbd>"_d[motion]</kbd>, <kbd>"_x</kbd>, <kbd>"_c[motion]</kbd>, etc.'
           ]
         }
       ],
