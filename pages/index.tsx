@@ -424,6 +424,11 @@ const sections: Section[] = [
         }
       ],
       [
+        ':%s/Ctrl-r"',
+        'search last yanked',
+        { tooltip: ['Can use other registers instead of <kbd>"</kbd>'] }
+      ],
+      [
         'Regex',
         '',
         {
