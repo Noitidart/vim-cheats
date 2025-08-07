@@ -820,7 +820,7 @@ export default function Home() {
                 >
                   <h2
                     className={clsx(
-                      'text-base font-bold mb-2 flex items-center justify-between',
+                      'text-base font-bold mb-2 flex items-center gap-1',
                       section.colorClass
                     )}
                   >
