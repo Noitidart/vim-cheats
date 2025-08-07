@@ -386,6 +386,16 @@ const sections: Section[] = [
     commands: [
       ['/pattern', 'search forward'],
       ['?pattern', 'search backward'],
+      [
+        ':/Ctrl-r"',
+        'search last yanked',
+        {
+          tooltip: [
+            "Out-of-the-box there isn't an easy way to search for selected text in visual mode. Must yank first.",
+            'Can use other registers instead of <kbd>"</kbd>.'
+          ]
+        }
+      ],
       ['n/N', 'next/prev match'],
       ['*/#', 'next/prev word under cursor'],
       [':noh', 'clear highlights'],
@@ -422,11 +432,6 @@ const sections: Section[] = [
             '<kbd>l</kbd> - substitute this and exit (think of "last")'
           ]
         }
-      ],
-      [
-        ':%s/Ctrl-r"',
-        'search last yanked',
-        { tooltip: ['Can use other registers instead of <kbd>"</kbd>'] }
       ],
       [
         'Regex',
