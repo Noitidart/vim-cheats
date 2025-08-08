@@ -352,7 +352,12 @@ const sections: Section[] = [
         }
       ],
       [
-        'See "Actions" in Editing (use without motion)',
+        <>
+          See &quot;Actions&quot; in Editing{' '}
+          <span className="text-xs font-normal text-gray-900 dark:text-gray-100">
+            use without motion
+          </span>
+        </>,
         '',
         {
           isText: true,
