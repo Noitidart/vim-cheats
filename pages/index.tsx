@@ -258,6 +258,7 @@ const sections: Section[] = [
     colorClass: titleColorClassNames.editingExtra,
     commands: [
       ['yy/Y', 'yank line'],
+      ['"+Y', 'system copy line'],
       [
         'dd',
         'cut line',
