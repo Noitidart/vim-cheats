@@ -310,7 +310,7 @@ const sections: Section[] = [
       ],
       [
         '"0p',
-        'paste from yank register',
+        'paste last yank',
         {
           tooltip: [
             'This register is not affected by delete operations',
