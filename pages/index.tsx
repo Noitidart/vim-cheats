@@ -761,7 +761,7 @@ const sections: Section[] = [
           tooltip: [
             '<kbd>"</kbd> - default register (last delete/yank)',
             '<kbd>0</kbd> - last yank',
-            '<kbd>1-9</kbd> - delete history (1=most recent)',
+            '<kbd>1-9</kbd> - large cut history (1=most recent) (large=1+ lines)',
             '<kbd>+</kbd> - system clipboard',
             '<kbd>/</kbd> - last search pattern',
             '<kbd>:</kbd> - last command',
