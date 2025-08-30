@@ -291,7 +291,16 @@ const sections: Section[] = [
           tooltip: ["Keeps the line's indentation"]
         }
       ],
-      ['s/cl', 'substitute char'],
+      ['s/cl', 'cut & insert at character'],
+      [
+        'r',
+        'replace character & normal',
+        {
+          tooltip: [
+            '<kbd>R</kbd> to enter "Replace Mode" - overwrites the character and moves to the right as you type without exiting insert mode until you hit <kbd>Esc</kbd>.'
+          ]
+        }
+      ],
       ['x/X (dl/dh)', 'cut char right/left'],
       ['D/d$', 'cut to line end'],
       ['C/c$', 'cut & insert to line end'],
