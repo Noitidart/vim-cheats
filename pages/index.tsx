@@ -163,8 +163,7 @@ const sections: Section[] = [
           ]
         }
       ],
-      ['>>/<<', 'indent/unindent'],
-      ['==', 'auto-indent line'],
+      ['>>/<</==', 'indent/outdent/auto-indent'],
       ['J', 'join lines'],
       ['~', 'toggle case and move right'],
       ['p/P', 'paste after/before'],
@@ -388,8 +387,7 @@ const sections: Section[] = [
           ]
         }
       ],
-      ['>/<', 'indent/unindent'],
-      ['=', 'auto-indent'],
+      ['>/</=', 'indent/outdent/auto'],
       ['I', 'insert at start on all lines'],
       ['A', 'insert at end on all lines'],
       [
