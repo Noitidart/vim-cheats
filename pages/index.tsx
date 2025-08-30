@@ -754,7 +754,14 @@ const sections: Section[] = [
           ]
         }
       ],
-      [':reg', 'view all registers']
+      [':reg', 'view all registers'],
+      [
+        'Ctrl-o [command]',
+        'one-off normal in insert',
+        {
+          tooltip: ['Only available in insert mode']
+        }
+      ]
     ]
   }
 ];
