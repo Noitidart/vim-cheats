@@ -115,7 +115,9 @@ const sections: Section[] = [
         }
       ],
       ['H/M/L', 'top/middle/bottom of screen'],
-      ['%', 'matching bracket'],
+      ['%', 'matching paren/curly/square'],
+      ['])/]}', '→ closing paren/curly'],
+      ['[(/[{', '← opening paren/curly'],
       ['f/F[char]', 'to (inclusive) [char] →/←'],
       ['t/T[char]', 'till (exclusive) [char] →/←'],
       [
