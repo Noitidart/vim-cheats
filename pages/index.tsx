@@ -219,21 +219,6 @@ const sections: Section[] = [
           ]
         }
       ],
-      [
-        '"+y',
-        'copy to clipboard',
-        {
-          tooltip: [
-            'Native copy commands (Cmd+C on macOS, Ctrl+C on Windows/Linux) work in visual mode too!',
-            'Modern terminals intercept native copy commands and copy visual selection',
-            'Both achieve the same result for local use',
-            ['Differences:', { bulleted: false, bolded: true }],
-            '<kbd>"+y</kbd> works over SSH, native copy does not',
-            '<kbd>"+y</kbd> puts text in Vim registers too',
-            'Native copy depends on your terminal app'
-          ]
-        }
-      ],
       ['gu/U', 'lower/upper-case'],
       ['g~', 'toggle case'],
       ['Motions', '', { isText: true, commandColorClass: 'font-bold' }],
@@ -258,6 +243,21 @@ const sections: Section[] = [
     colorClass: titleColorClassNames.editingExtra,
     commands: [
       ['yy/Y', 'yank line'],
+      [
+        '"+y[motion]',
+        'system copy',
+        {
+          tooltip: [
+            'Native copy commands (Cmd+C on macOS, Ctrl+C on Windows/Linux) work in visual mode too!',
+            'Modern terminals intercept native copy commands and copy visual selection',
+            'Both achieve the same result for local use',
+            ['Differences:', { bulleted: false, bolded: true }],
+            '<kbd>"+y</kbd> works over SSH, native copy does not',
+            '<kbd>"+y</kbd> puts text in Vim registers too',
+            'Native copy depends on your terminal app'
+          ]
+        }
+      ],
       ['"+Y', 'system copy line'],
       [
         'dd',
