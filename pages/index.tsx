@@ -793,6 +793,43 @@ const sections: Section[] = [
         {
           tooltip: ['Only available in insert mode']
         }
+      ],
+      [
+        '`[mark]',
+        'go to mark position',
+        {
+          tooltip: [
+            ['Special marks:', { bulleted: false, bolded: true }],
+            '<kbd>`^</kbd> - last position of cursor in insert mode',
+            '<kbd>`.</kbd> - position of last change',
+            '<kbd>`"</kbd> - position before last jump',
+            '<kbd>`0</kbd> - position in last file edited (when exited Vim)',
+            '<kbd>``</kbd> - position before last jump (back and forth)',
+            '<kbd>`[</kbd> - start of last change or yank',
+            '<kbd>`]</kbd> - end of last change or yank',
+            '<kbd>`<</kbd> - start of last visual selection',
+            '<kbd>`></kbd> - end of last visual selection',
+            ['Named marks:', { bulleted: false, bolded: true }],
+            '<kbd>`a-z</kbd> - local to current buffer',
+            '<kbd>`A-Z</kbd> - global across files',
+            'Set with <kbd>m[mark]</kbd> (e.g., <kbd>ma</kbd>)',
+            'Delete single mark with <kbd>:delm [mark]</kbd>',
+            'Delete marks in a range with <kbd>:delm [mark]-[mark]</kbd> (e.g. all marks with <kbd>:delm a-z</kbd>)',
+            'Delete specific marks at once with <kbd>:delm [mark][mark]...</kbd> (e.g. <kbd>:delm abc</kbd>)'
+          ]
+        }
+      ],
+      [
+        "'[mark]",
+        'go to mark line start',
+        {
+          tooltip: [
+            'Goes to first non-blank character of the line',
+            'Same special and named marks as <kbd>`[mark]</kbd>',
+            "Difference: <kbd>`</kbd> goes to exact position, <kbd>'</kbd> goes to line start",
+            "<kbd>''</kbd> - line of last jump (back and forth) equivalent of <kbd>``</kbd> and quicker to type than <kbd>`'</kbd>"
+          ]
+        }
       ]
     ]
   }
