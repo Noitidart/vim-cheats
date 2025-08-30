@@ -383,6 +383,15 @@ const sections: Section[] = [
       ['=', 'auto-indent'],
       ['I', 'insert at start on all lines'],
       ['A', 'insert at end on all lines'],
+      [
+        'o',
+        'cursor to start/end of selection',
+        {
+          tooltip: [
+            'Jump to matching tag trick - <kbd>vat</kbd> + <kbd>o</kbd> (because <kbd>%</kbd> does not work on tags unless vim.matchit plugin is installed)'
+          ]
+        }
+      ],
       ['Esc', 'exit visual mode']
     ]
   },
