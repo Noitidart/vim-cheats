@@ -754,7 +754,37 @@ const sections: Section[] = [
           ]
         }
       ],
-      [':reg', 'view all registers'],
+      [
+        ':reg',
+        'view all registers',
+        {
+          tooltip: [
+            '<kbd>"</kbd> - default register (last delete/yank)',
+            '<kbd>0</kbd> - last yank',
+            '<kbd>1-9</kbd> - delete history (1=most recent)',
+            '<kbd>+</kbd> - system clipboard',
+            '<kbd>/</kbd> - last search pattern',
+            '<kbd>:</kbd> - last command',
+            '<kbd>%</kbd> - current file name',
+            '<kbd>.</kbd> - last inserted text',
+            '<kbd>a-z</kbd> - named registers',
+            ['Using named registers:', { bulleted: false, bolded: true }],
+            '<kbd>"[a-z][action][motion]</kbd> - replaces register',
+            '<kbd>"[A-Z][action][motion]</kbd> - appends to register',
+            'Example: <kbd>"ayy</kbd> yanks line to register a',
+            'Example: <kbd>"Ayy</kbd> appends line to register a'
+          ]
+        }
+      ],
+      [
+        'Ctrl-r [register]',
+        'insert register',
+        {
+          tooltip: [
+            'Works only in command-line mode (after <kbd>:</kbd>) or insert mode'
+          ]
+        }
+      ],
       [
         'Ctrl-o [command]',
         'one-off normal in insert',
