@@ -240,7 +240,7 @@ const sections: Section[] = [
     ]
   },
   {
-    title: 'Editing Common/Special Cases',
+    title: 'Editing Common/Special Uses',
     colorClass: titleColorClassNames.editingExtra,
     commands: [
       ['yy/Y', 'yank line'],
