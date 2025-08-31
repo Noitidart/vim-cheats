@@ -410,16 +410,6 @@ const sections: Section[] = [
     commands: [
       ['/pattern', 'search forward'],
       ['?pattern', 'search backward'],
-      [
-        ':/Ctrl-r"',
-        'search last yanked',
-        {
-          tooltip: [
-            "Out-of-the-box there isn't an easy way to search for selected text in visual mode. Must yank first.",
-            'Can use other registers instead of <kbd>"</kbd>.'
-          ]
-        }
-      ],
       ['n/N', 'next/prev match'],
       ['*/#', 'next/prev word under cursor'],
       [':noh', 'clear highlights'],
@@ -563,6 +553,25 @@ const sections: Section[] = [
         {
           tooltip: [
             'Example: <kbd>:%s/word/[&]/g</kbd> wraps "word" in brackets'
+          ]
+        }
+      ],
+      [
+        'Common Uses',
+        '',
+        {
+          isText: true,
+          commandColorClass: 'font-bold',
+          commandSizeClass: 'text-sm'
+        }
+      ],
+      [
+        ':/Ctrl-r"',
+        'search last yanked',
+        {
+          tooltip: [
+            "Out-of-the-box there isn't an easy way to search for selected text in visual mode. Must yank first.",
+            'Can use other registers instead of <kbd>"</kbd>.'
           ]
         }
       ]
