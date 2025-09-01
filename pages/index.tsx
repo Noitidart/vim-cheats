@@ -45,16 +45,18 @@ const sections: Section[] = [
   {
     title: 'Movement',
     colorClass: titleColorClassNames.movement,
-    tooltip: ['Motion command compatible.'],
+    tooltip: [
+      'All support # prefix with few exceptions which are noted in the tooltip'
+    ],
     commands: [
-      ['h/j/k/l', '←/↓/↑/→'],
       [
-        '[#]j/[#]k',
-        '↓/↑ [#] lines',
+        'h/j/k/l',
+        '←/↓/↑/→',
         {
           tooltip: [
-            'Unlike <kbd>#g/#GG</kbd> this does not go to first non-blank but instead maintains cursor position.',
-            'If the line jumped to is shorter then starting line, the cursor will be at the end of the line.'
+            'If the line jumped to is shorter then starting line, the cursor will be at the end of the line.',
+            ['<kbd>#j/#k</kbd>', { bulleted: false, bolded: true }],
+            'Unlike <kbd>#g/#GG</kbd> this does not go to first non-blank but instead maintains cursor position.'
           ]
         }
       ],
@@ -62,8 +64,18 @@ const sections: Section[] = [
       ['e/ge', 'word end →/←'],
       ['W/B', 'spaced word start →/←'],
       ['E/gE', 'spaced word end →/←'],
-      ['0/$', 'line start/end'],
-      ['^/g_', 'first/last non-blank on line'],
+      ['0/$', 'line start/end', { tooltip: ['Does not support # prefix'] }],
+      [
+        '^',
+        'first non-blank on line',
+        { tooltip: ['Does not support # prefix'] }
+      ],
+      [
+        '_/g_',
+        'first/last non-blank on line',
+        { tooltip: ['# prefix will go to last non-blank on [#-1] lines below'] }
+      ],
+      ['Enter', 'first non-blank on line below'],
       [
         '(/)',
         'sentences ←/→',
@@ -101,16 +113,10 @@ const sections: Section[] = [
         'gg/G',
         'file top/bottom',
         {
-          tooltip: ['Goes to first non-blank on line']
-        }
-      ],
-      [
-        '[#]gg/[#]G',
-        'go to line [#]',
-        {
           tooltip: [
-            'Goes to first non-blank on line',
-            'Unlike <kbd>#j</kbd>/<kbd>#k</kbd> which tries to maintain cursor position instead of going to first blank'
+            'Goes to first non-blank on line.',
+            ['<kbd>#gg/#G</kbd>', { bulleted: false, bolded: true }],
+            'Unlike <kbd>#j/#k</kbd> this does not try to maintain cursor position, this goes to the first non-blank.'
           ]
         }
       ],
