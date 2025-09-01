@@ -46,7 +46,7 @@ const sections: Section[] = [
     title: 'Movement',
     colorClass: titleColorClassNames.movement,
     tooltip: [
-      'All support # prefix with few exceptions which are noted in the tooltip'
+      'All support # count with few exceptions which are noted in the tooltip'
     ],
     commands: [
       [
@@ -60,20 +60,32 @@ const sections: Section[] = [
           ]
         }
       ],
+      [
+        'gg/G',
+        'first/last line number',
+        {
+          tooltip: [
+            'Goes to first non-blank on line.',
+            '# count goes to # line number from top of file for both commands.',
+            ['<kbd>#gg/#G</kbd>', { bulleted: false, bolded: true }],
+            'Unlike <kbd>#j/#k</kbd> this does not try to maintain cursor position, this goes to the first non-blank.'
+          ]
+        }
+      ],
       ['w/b', 'word start →/←'],
       ['e/ge', 'word end →/←'],
       ['W/B', 'spaced word start →/←'],
       ['E/gE', 'spaced word end →/←'],
-      ['0/$', 'line start/end', { tooltip: ['Does not support # prefix'] }],
+      ['0/$', 'line start/end', { tooltip: ['Does not support # count'] }],
       [
         '^',
         'first non-blank on line',
-        { tooltip: ['Does not support # prefix'] }
+        { tooltip: ['Does not support # count'] }
       ],
       [
         '_/g_',
         'first/last non-blank on line',
-        { tooltip: ['# prefix will go to last non-blank on [#-1] lines below'] }
+        { tooltip: ['# count will go to last non-blank on [#-1] lines below'] }
       ],
       ['Enter', 'first non-blank on line below'],
       [
@@ -109,17 +121,6 @@ const sections: Section[] = [
       //     ]
       //   }
       // ],
-      [
-        'gg/G',
-        'file top/bottom',
-        {
-          tooltip: [
-            'Goes to first non-blank on line.',
-            ['<kbd>#gg/#G</kbd>', { bulleted: false, bolded: true }],
-            'Unlike <kbd>#j/#k</kbd> this does not try to maintain cursor position, this goes to the first non-blank.'
-          ]
-        }
-      ],
       ['H/M/L', 'top/middle/bottom of screen'],
       ['%', 'matching paren/curly/square'],
       ['])/]}', '→ closing paren/curly'],
