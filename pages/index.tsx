@@ -640,7 +640,7 @@ const sections: Section[] = [
       ['', '', { isText: true }],
       ['Objects', '', { isText: true, commandColorClass: 'font-bold' }],
       ['w', 'word'],
-      ['W', 'word with punctuation'],
+      ['W', 'spaced word'],
       ['s', 'sentence'],
       ['p', 'paragraph'],
       ['b', "paren block (same as '(')"],
