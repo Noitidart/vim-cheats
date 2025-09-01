@@ -85,7 +85,7 @@ const sections: Section[] = [
       [
         '_/g_',
         'first/last non-blank on line',
-        { tooltip: ['# count will go to last non-blank on [#-1] lines below'] }
+        { tooltip: ['[#] count will first go to [#-1] lines below'] }
       ],
       ['Enter', 'first non-blank on line below'],
       [
