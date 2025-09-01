@@ -46,7 +46,7 @@ const sections: Section[] = [
     title: 'Movement',
     colorClass: titleColorClassNames.movement,
     tooltip: [
-      'All support # count with few exceptions which are noted in the tooltip'
+      'All support [#] count with few exceptions which are noted in the tooltip.'
     ],
     commands: [
       [
@@ -66,7 +66,7 @@ const sections: Section[] = [
         {
           tooltip: [
             'Goes to first non-blank on line.',
-            '# count goes to # line number from top of file for both commands.',
+            '[#] count goes to [#] line number from top of file for both commands.',
             ['<kbd>#gg/#G</kbd>', { bulleted: false, bolded: true }],
             'Unlike <kbd>#j/#k</kbd> this does not try to maintain cursor position, this goes to the first non-blank.'
           ]
@@ -76,11 +76,11 @@ const sections: Section[] = [
       ['e/ge', 'word end →/←'],
       ['W/B', 'spaced word start →/←'],
       ['E/gE', 'spaced word end →/←'],
-      ['0/$', 'line start/end', { tooltip: ['Does not support # count'] }],
+      ['0/$', 'line start/end', { tooltip: ['Does not support [#] count'] }],
       [
         '^',
         'first non-blank on line',
-        { tooltip: ['Does not support # count'] }
+        { tooltip: ['Does not support [#] count'] }
       ],
       [
         '_/g_',
