@@ -235,7 +235,7 @@ const sections: Section[] = [
           ]
         }
       ],
-      ['gu/U', 'lower/upper-case'],
+      ['gu/gU', 'lower/upper-case'],
       ['g~', 'toggle case'],
       ['Motions', '', { isText: true, commandColorClass: 'font-bold' }],
       [
