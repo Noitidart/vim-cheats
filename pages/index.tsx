@@ -354,7 +354,7 @@ const sections: Section[] = [
       ['V', 'select lines'],
       ['Ctrl-v', 'select block'],
       [
-        'Actions in Visual Mode',
+        'Actions',
         '',
         {
           isText: true,
@@ -362,26 +362,10 @@ const sections: Section[] = [
         }
       ],
       [
-        'See Movement',
-        '',
-        {
-          isText: true,
-          commandColorClass: `font-bold ${titleColorClassNames.movement}`
-        }
-      ],
-      [
-        'See "With Cursor" in Scrolling',
-        '',
-        {
-          isText: true,
-          commandColorClass: `font-bold ${titleColorClassNames.scrolling}`
-        }
-      ],
-      [
         <>
           See &quot;Actions&quot; in Editing{' '}
           <span className="text-xs font-normal text-gray-900 dark:text-gray-100">
-            use without motion
+            Except visual (v)
           </span>
         </>,
         '',
@@ -405,8 +389,7 @@ const sections: Section[] = [
         }
       ],
       ['>/</=', 'indent/outdent/auto'],
-      ['I', 'insert at start on all lines'],
-      ['A', 'insert at end on all lines'],
+      ['I/A', 'insert at start/end of ALL lines'],
       [
         'o',
         'cursor to start/end of selection',
