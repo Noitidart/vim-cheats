@@ -836,6 +836,7 @@ const sections: Section[] = [
             'Goes to first non-blank character of the line',
             'Same special and named marks as <kbd>`[mark]</kbd>',
             "Difference: <kbd>`</kbd> goes to exact position, <kbd>'</kbd> goes to line start",
+            ['Special marks:', { bulleted: false, bolded: true }],
             "<kbd>''</kbd> - line of last jump (back and forth) equivalent of <kbd>``</kbd> and quicker to type than <kbd>`'</kbd>"
           ]
         }
