@@ -236,8 +236,7 @@ const sections: Section[] = [
           ]
         }
       ],
-      ['gu/gU', 'lower/upper-case'],
-      ['g~', 'toggle case'],
+      ['gu/gU/g~', 'lower/upper/toggle case'],
       ['Motions', '', { isText: true, commandColorClass: 'font-bold' }],
       [
         <>
@@ -400,6 +399,7 @@ const sections: Section[] = [
           ]
         }
       ],
+      ['u/U/~', 'lower/upper/toggle case'],
       ['Esc', 'exit visual mode']
     ]
   },
