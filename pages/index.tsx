@@ -47,7 +47,7 @@ const sections: Section[] = [
     colorClass: titleColorClassNames.movement,
     tooltip: [
       'Wherever you see [motion] you can use any of these commands.',
-      'All support [#] count with few exceptions which are noted in the tooltip.'
+      'All support [#] count prefix with some exceptions which are noted in the tooltip for that command.'
     ],
     commands: [
       [
@@ -79,14 +79,14 @@ const sections: Section[] = [
       ['E/gE', 'spaced word end →/←'],
       ['0/$', 'line start/end', { tooltip: ['Does not support [#] count'] }],
       [
-        '^',
-        'first non-blank on line',
-        { tooltip: ['Does not support [#] count'] }
-      ],
-      [
         '_/g_',
         'first/last non-blank on line',
-        { tooltip: ['[#] count will first go to [#-1] lines below'] }
+        {
+          tooltip: [
+            '[#] count will first go to [#-1] lines below.',
+            "<kbd>^</kbd> moves to the first non-blank character like <kbd>_</kbd> but doesn't support [#] count and is harder to type so it is not recommended."
+          ]
+        }
       ],
       ['Enter', 'first non-blank on line below'],
       [
@@ -232,7 +232,7 @@ const sections: Section[] = [
             ['Use these instead:', { bulleted: false, bolded: true }],
             '<kbd>v$</kbd> - select to end of line',
             '<kbd>vg_</kbd> - select to last non-blank character',
-            '<kbd>^vg_</kbd> - select line without indent or new line'
+            '<kbd>_vg_</kbd> - select line without indent or new line'
           ]
         }
       ],
