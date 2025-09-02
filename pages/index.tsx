@@ -46,6 +46,7 @@ const sections: Section[] = [
     title: 'Movement',
     colorClass: titleColorClassNames.movement,
     tooltip: [
+      'Wherever you see [motion] you can use any of these commands.',
       'All support [#] count with few exceptions which are noted in the tooltip.'
     ],
     commands: [
