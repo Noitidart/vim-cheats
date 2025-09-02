@@ -399,8 +399,7 @@ const sections: Section[] = [
           ]
         }
       ],
-      ['u/U/~', 'lower/upper/toggle case'],
-      ['Esc', 'exit visual mode']
+      ['u/U/~', 'lower/upper/toggle case']
     ]
   },
   {
