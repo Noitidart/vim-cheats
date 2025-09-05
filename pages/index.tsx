@@ -581,8 +581,8 @@ const sections: Section[] = [
     commands: [
       [':w', 'save file'],
       [':q', 'quit vim'],
-      [':wq', 'save even if no changes and quit'],
-      ['ZZ/:x', 'save if changes then quit'],
+      [':wq', 'save (even if no changes) & quit'],
+      ['ZZ/:x', 'save (only if changes) & quit'],
       ['ZQ/:q!', 'quit without saving'],
       [
         ':cq',
