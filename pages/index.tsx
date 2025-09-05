@@ -809,7 +809,7 @@ const sections: Section[] = [
             ['Special marks:', { bulleted: false, bolded: true }],
             '<kbd>`^</kbd> - last position of cursor in insert mode',
             '<kbd>`.</kbd> - position of last change',
-            '<kbd>`"</kbd> - position before last jump',
+            '<kbd>`"</kbd> - position when last exiting the current buffer',
             '<kbd>`0</kbd> - position in last file edited (when exited Vim)',
             '<kbd>``</kbd> - position before last jump (back and forth)',
             '<kbd>`[</kbd> - start of last change or yank',
