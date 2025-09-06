@@ -187,7 +187,7 @@ const sections: Section[] = [
       ['p/P', 'paste after/before'],
       [']p', 'paste below with current line indent'],
       [
-        '"+p/P',
+        '"+p/"+P',
         'system paste after/before',
         {
           tooltip: [
