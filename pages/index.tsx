@@ -755,8 +755,8 @@ const sections: Section[] = [
           tooltip: [
             '<kbd>%</kbd> is a range that means "all lines in the file"',
             ['Common uses:', { bulleted: false, bolded: true }],
-            '<kbd>:%y</kbd> - copy all lines',
-            '<kbd>:%y+</kbd> - copy all lines to system clipboard',
+            '<kbd>:%y</kbd> - yank all lines',
+            '<kbd>:%y+</kbd> - system copy all lines to system clipboard',
             '<kbd>:%d</kbd> - delete all lines',
             '<kbd>:%s/old/new/g</kbd> - see "Search & Replace"'
           ]
