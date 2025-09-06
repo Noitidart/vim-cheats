@@ -185,6 +185,7 @@ const sections: Section[] = [
       ['J', 'join lines'],
       ['~', 'toggle case and move right'],
       ['p/P', 'paste after/before'],
+      [']p', 'paste below with current line indent'],
       [
         '"+p/P',
         'system paste after/before',
