@@ -824,7 +824,9 @@ const sections: Section[] = [
             'Set with <kbd>m[mark]</kbd> (e.g., <kbd>ma</kbd>)',
             'Delete single mark with <kbd>:delm [mark]</kbd>',
             'Delete marks in a range with <kbd>:delm [mark]-[mark]</kbd> (e.g. all marks with <kbd>:delm a-z</kbd>)',
-            'Delete specific marks at once with <kbd>:delm [mark][mark]...</kbd> (e.g. <kbd>:delm abc</kbd>)'
+            'Delete specific marks at once with <kbd>:delm [mark][mark]...</kbd> (e.g. <kbd>:delm abc</kbd>)',
+            ['Editing with marks:', { bulleted: false, bolded: true }],
+            '<kbd>[action]`[mark]</kbd> - [action] to mark position (see "Actions" in Editing)'
           ]
         }
       ],
@@ -837,7 +839,9 @@ const sections: Section[] = [
             'Same special and named marks as <kbd>`[mark]</kbd>',
             "Difference: <kbd>`</kbd> goes to exact position, <kbd>'</kbd> goes to line start",
             ['Special marks:', { bulleted: false, bolded: true }],
-            "<kbd>''</kbd> - line of last jump (back and forth) equivalent of <kbd>``</kbd> and quicker to type than <kbd>`'</kbd>"
+            "<kbd>''</kbd> - line of last jump (back and forth) equivalent of <kbd>``</kbd> and quicker to type than <kbd>`'</kbd>",
+            ['Editing with marks:', { bulleted: false, bolded: true }],
+            '<kbd>[action]\'[mark]</kbd> - [action] to mark line (see "Actions" in Editing)'
           ]
         }
       ]
