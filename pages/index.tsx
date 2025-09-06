@@ -796,10 +796,13 @@ const sections: Section[] = [
         }
       ],
       [
-        'Ctrl-o [command]',
-        'one-off normal in insert',
+        'Ctrl-o [cmd]',
+        'normal mode once',
         {
-          tooltip: ['Only available in insert mode']
+          tooltip: [
+            'Only available in insert mode',
+            'Allows one-off normal mode [command] while in insert mode'
+          ]
         }
       ],
       [
