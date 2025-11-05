@@ -123,7 +123,15 @@ const sections: Section[] = [
       //   }
       // ],
       ['H/M/L', 'top/middle/bottom of screen'],
-      ['%', 'matching paren/curly/square'],
+      [
+        '%',
+        'matching paren/curly/square',
+        {
+          tooltip: [
+            'Matching tag: <kbd>vat</kbd> + <kbd>o</kbd> + <kbd>Esc</kbd> (because <kbd>%</kbd> does not work on tags unless vim.matchit plugin is installed)'
+          ]
+        }
+      ],
       [
         '])/]}',
         '→ closing paren/curly',
@@ -391,15 +399,7 @@ const sections: Section[] = [
       ],
       ['>/</=', 'indent/outdent/auto'],
       ['I/A', 'insert at start/end of ALL lines'],
-      [
-        'o',
-        'cursor to start/end of selection',
-        {
-          tooltip: [
-            'Jump to matching tag trick - <kbd>vat</kbd> + <kbd>o</kbd> (because <kbd>%</kbd> does not work on tags unless vim.matchit plugin is installed)'
-          ]
-        }
-      ],
+      ['o', 'cursor to start/end of selection'],
       ['u/U/~', 'lower/upper/toggle case']
     ]
   },
