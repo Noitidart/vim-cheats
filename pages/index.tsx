@@ -421,11 +421,7 @@ const sections: Section[] = [
             '<kbd>g</kbd> - global (without this only the first match on each line is replaced)',
             '<kbd>I</kbd> - case sensitive (by default it is case insensitive)',
             '<kbd>w</kbd> - whole word',
-            '<kbd>c</kbd> - confirm mode (see next line details)',
-            ['Using a different delimiter:', { bulleted: false, bolded: true }],
-            'When text contains many forward slashes (like paths), you can use a different delimiter instead of escaping:',
-            '<kbd>:%s#/home/team#/home/team/Downloads#g</kbd>',
-            'Common delimiter alternatives: <kbd>#</kbd>, <kbd>_</kbd>, <kbd>@</kbd>'
+            '<kbd>c</kbd> - confirm mode (see next line details)'
           ]
         }
       ],
@@ -443,6 +439,25 @@ const sections: Section[] = [
             '<kbd>a</kbd> - all',
             '<kbd>q</kbd> - quit without substituting, but it does not undo once you have already substituted text',
             '<kbd>l</kbd> - substitute this and exit (think of "last")'
+          ]
+        }
+      ],
+      [
+        '/ # _ @ , ;',
+        'delimiters',
+        {
+          tooltip: [
+            'Use any delimiter instead of <kbd>/</kbd> when the pattern or replacement contains many slashes (e.g. file paths, URLs)',
+            'Example 1:',
+            [
+              ' • Instead of <kbd>:%s/https:\\/\\/example/https:\\/\\/www.example/g</kbd>',
+              { bulleted: false }
+            ],
+            [
+              ' • Use <kbd>:%s#https://example#https://www.example#g</kbd>',
+              { bulleted: false }
+            ],
+            'Example 2: <kbd>:%s#/home/team#/home/team/Downloads#g</kbd>'
           ]
         }
       ],
@@ -481,25 +496,19 @@ const sections: Section[] = [
       ],
       ['', '', { isText: true }],
       ['Pattern', '', { isText: true, commandColorClass: 'font-bold' }],
+      ['. * \\ [ ] $ ^ ~', 'needs escaping'],
       [
-        '. * $ ^ [ ] ~',
-        'special',
+        '~',
+        'last replacement',
         {
           tooltip: [
-            'Escape these to use as literals. Similar to other regex engines (except for <kbd>~</kbd>)',
-            'Example: <kbd>:%s/\./period/g</kbd> replaces all dots with "period"',
-            [
-              '<kbd>~</kbd> is unique to Vim:',
-              { bulleted: false, bolded: true }
-            ],
-            'Matches the last replacement string',
-            'Example: <kbd>:%s/hello/world/g</kbd>',
+            'Matches the last replaced string in the search/pattern portion',
+            'Example: After first doing <kbd>:%s/hello/world/g</kbd>',
             [
               ' • <kbd>:%s/~/mars/g</kbd> will replace all "world" to "mars"',
               { bulleted: false }
             ],
-            [' • <kbd>/~</kbd> will search for "mars"', { bulleted: false }],
-            'Useful for finding what you just replaced'
+            [' • <kbd>/~</kbd> will search for "mars"', { bulleted: false }]
           ]
         }
       ],
@@ -536,22 +545,34 @@ const sections: Section[] = [
           ]
         }
       ],
-      ['New Replacement', '', { isText: true, commandColorClass: 'font-bold' }],
+      ['Replacement', '', { isText: true, commandColorClass: 'font-bold' }],
+      ['~ & \\', 'needs escaping'],
+      [
+        '~',
+        'last replacement',
+        {
+          tooltip: [
+            'Inserts the last replacement string used',
+            'Example: <kbd>:%s/hello/world/g</kbd> then <kbd>:%s/~/mars/g</kbd> replaces all "world" with "mars"'
+          ]
+        }
+      ],
+      [
+        '&',
+        'entire match',
+        {
+          tooltip: [
+            'Inserts the entire matched text from the search pattern',
+            'Example: <kbd>:%s/word/[&]/g</kbd> wraps "word" in brackets'
+          ]
+        }
+      ],
       [
         '\\1, \\2, etc',
         'backreferences',
         {
           tooltip: [
             'Example: <kbd>:%s/\\(\\w\\+\\) \\(\\w\\+\\)/\\2 \\1/g</kbd> to swap words'
-          ]
-        }
-      ],
-      [
-        '&',
-        'entire matched text',
-        {
-          tooltip: [
-            'Example: <kbd>:%s/word/[&]/g</kbd> wraps "word" in brackets'
           ]
         }
       ],
