@@ -80,7 +80,6 @@ export default function Tooltip({
           text-gray-700 dark:text-gray-100 text-sm
           rounded-lg p-3 shadow-xl
           border border-gray-200 dark:border-gray-700
-          max-w-[90vw] md:max-w-sm
           ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}
         `}
       >
