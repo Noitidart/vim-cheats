@@ -77,7 +77,16 @@ const sections: Section[] = [
       ['e/ge', 'word end →/←'],
       ['W/B', 'spaced word start →/←'],
       ['E/gE', 'spaced word end →/←'],
-      ['0/$', 'line start/end', { tooltip: ['Does not support [#] count'] }],
+      [
+        '0/$',
+        'line start/end',
+        {
+          tooltip: [
+            '<kbd>0</kbd> does not support [#] count',
+            '<kbd>[#]$</kbd> goes to line [#-1] below'
+          ]
+        }
+      ],
       [
         '_/g_',
         'first/last non-blank on line',
