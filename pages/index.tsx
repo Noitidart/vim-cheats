@@ -586,12 +586,16 @@ const sections: Section[] = [
         }
       ],
       [
-        ':/Ctrl-r"',
-        'search last yanked',
+        ':/Ctrl-r [register]',
+        'search register',
         {
           tooltip: [
-            "Out-of-the-box there isn't an easy way to search for selected text in visual mode. Must yank first.",
-            'Can use other registers instead of <kbd>"</kbd>.'
+            "At place of cursor in command, it will insert the register's content.",
+            [
+              ' • So can do <kbd>:/hello/Ctrl-r [register]</kbd>',
+              { bulleted: false }
+            ],
+            'Out-of-the-box there isn\'t an easy way to search for selected text in visual mode. Must delete/yank first then <kbd>:/Ctrl-r"</kbd>'
           ]
         }
       ]
