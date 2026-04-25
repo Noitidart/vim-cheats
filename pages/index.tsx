@@ -495,7 +495,7 @@ const sections: Section[] = [
             'Matches the last replacement string',
             'Example: <kbd>:%s/hello/world/g</kbd>',
             [
-              ' • <kdb>:%s/~/mars/g</kdb> will replace all "world" to "mars"',
+              ' • <kbd>:%s/~/mars/g</kbd> will replace all "world" to "mars"',
               { bulleted: false }
             ],
             [' • <kbd>/~</kbd> will search for "mars"', { bulleted: false }],
