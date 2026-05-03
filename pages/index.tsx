@@ -615,7 +615,7 @@ const sections: Section[] = [
     colorClass: titleColorClassNames.files,
     commands: [
       [':w', 'save file'],
-      [':q', 'quit vim'],
+      [':q', 'quit vim if unchanged else error'],
       [':wq', 'save (even if no changes) & quit'],
       ['ZZ/:x', 'save (only if changes) & quit'],
       ['ZQ/:q!', 'quit without saving'],
