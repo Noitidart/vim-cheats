@@ -314,7 +314,7 @@ const sections: Section[] = [
         {
           tooltip: [
             '<kbd>#</kbd> is optional (default: 1)',
-            "<kbd>#dj</kbd> can be recreated with <kbd>#dd</kbd> - see it's tooltip"
+            '<kbd>#dj</kbd> is same as <kbd>(#+1)dd</kbd>'
           ]
         }
       ],
