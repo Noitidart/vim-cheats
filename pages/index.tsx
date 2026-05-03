@@ -545,6 +545,28 @@ const sections: Section[] = [
         }
       ],
       [
+        '\\c',
+        'case insensitive',
+        {
+          tooltip: [
+            'Use anywhere in a search pattern to make it case-insensitive',
+            'Overrides smartcase/ignorecase for this search only',
+            'Example: <kbd>/\\chello</kbd> matches Hello, HELLO, hElLo',
+          ],
+        },
+      ],
+      [
+        '\\C',
+        'case sensitive',
+        {
+          tooltip: [
+            'Use anywhere in a search pattern to make it case-sensitive',
+            'Overrides smartcase/ignorecase for this search only',
+            'Example: <kbd>/\\CHello</kbd> matches only Hello (not hello, HELLO)',
+          ],
+        },
+      ],
+      [
         '\\n',
         'match newline',
         {
