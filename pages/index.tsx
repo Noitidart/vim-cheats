@@ -551,9 +551,9 @@ const sections: Section[] = [
           tooltip: [
             'Use anywhere in a search pattern to make it case-insensitive',
             'Overrides smartcase/ignorecase for this search only',
-            'Example: <kbd>/\\chello</kbd> matches Hello, HELLO, hElLo',
-          ],
-        },
+            'Example: <kbd>/\\chello</kbd> matches Hello, HELLO, hElLo'
+          ]
+        }
       ],
       [
         '\\C',
@@ -562,9 +562,9 @@ const sections: Section[] = [
           tooltip: [
             'Use anywhere in a search pattern to make it case-sensitive',
             'Overrides smartcase/ignorecase for this search only',
-            'Example: <kbd>/\\CHello</kbd> matches only Hello (not hello, HELLO)',
-          ],
-        },
+            'Example: <kbd>/\\CHello</kbd> matches only Hello (not hello, HELLO)'
+          ]
+        }
       ],
       [
         '\\n',
@@ -636,8 +636,8 @@ const sections: Section[] = [
     title: 'Files',
     colorClass: titleColorClassNames.files,
     commands: [
-      [':w', 'save file'],
-      [':q', 'quit vim if unchanged else error'],
+      [':w', 'save (even if no changes)'],
+      [':q', 'quit only if no changes'],
       [':wq', 'save (even if no changes) & quit'],
       ['ZZ/:x', 'save (only if changes) & quit'],
       ['ZQ/:q!', 'quit without saving'],
