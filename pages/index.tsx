@@ -636,11 +636,11 @@ const sections: Section[] = [
     title: 'Files',
     colorClass: titleColorClassNames.files,
     commands: [
-      [':w', 'save (even if no changes)'],
       [':q', 'quit only if no changes'],
-      [':wq', 'save (even if no changes) & quit'],
-      ['ZZ/:x', 'save (only if changes) & quit'],
       ['ZQ/:q!', 'quit without saving'],
+      ['ZZ/:x', 'save (only if changes) & quit'],
+      [':w', 'save (even if no changes)'],
+      [':wq', 'save (even if no changes) & quit'],
       [
         ':cq',
         'exit with error',
