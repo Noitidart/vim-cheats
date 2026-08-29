@@ -505,7 +505,11 @@ const sections: Section[] = [
       ],
       ['', '', { isText: true }],
       ['Pattern', '', { isText: true, commandColorClass: 'font-bold' }],
-      ['. * \\ [ ] $ ^ ~', 'needs escaping'],
+      [
+        '. * \\ [ ] $ ^ ~',
+        'special',
+        { tooltip: ['Regex operators by default - escape to use as literal'] }
+      ],
       [
         '~',
         'last replacement',
@@ -526,8 +530,7 @@ const sections: Section[] = [
         'NOT special',
         {
           tooltip: [
-            'Escape to get expected regex behavior',
-            'Unlike most regex engines, these are literal by default in Vim',
+            'Literal by default - escape to use as regex operators',
             'Example: <kbd>\\d\\+</kbd> matches one or more digits'
           ]
         }
