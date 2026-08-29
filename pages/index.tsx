@@ -510,21 +510,7 @@ const sections: Section[] = [
         'special',
         { tooltip: ['Regex operators by default - escape to use as literal'] }
       ],
-      [
-        '~',
-        'last replacement',
-        {
-          tooltip: [
-            'Matches the last replaced string in the search/pattern portion',
-            'Example: After first doing <kbd>:%s/hello/world/g</kbd>',
-            [
-              ' • <kbd>:%s/~/mars/g</kbd> will replace all "world" to "mars"',
-              { bulleted: false }
-            ],
-            [' • <kbd>/~</kbd> will search for "mars"', { bulleted: false }]
-          ]
-        }
-      ],
+
       [
         '+ ? { } ( ) | < >',
         'NOT special',
@@ -544,6 +530,21 @@ const sections: Section[] = [
             'Makes Vim regex behave more like Perl/Python regex',
             'Example: <kbd>/\\v(foo|bar)\s+(\\d+)</kbd>',
             'The non-special characters in Vim now behave as special regex characters without escaping: <kbd>+ ? { } ( ) | < ></kbd>'
+          ]
+        }
+      ],
+      [
+        '~',
+        'last replacement',
+        {
+          tooltip: [
+            'Matches the last replaced string in the search/pattern portion',
+            'Example: After first doing <kbd>:%s/hello/world/g</kbd>',
+            [
+              ' • <kbd>:%s/~/mars/g</kbd> will replace all "world" to "mars"',
+              { bulleted: false }
+            ],
+            [' • <kbd>/~</kbd> will search for "mars"', { bulleted: false }]
           ]
         }
       ],
