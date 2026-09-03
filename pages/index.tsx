@@ -508,16 +508,13 @@ const sections: Section[] = [
       [
         '. * \\ [ ] $ ^ ~',
         'special',
-        { tooltip: ['Regex operators by default - escape to use as literal'] }
-      ],
-
-      [
-        '+ ? { } ( ) | < >',
-        'NOT special',
         {
           tooltip: [
-            'Literal by default - escape to use as regex operators',
-            'Example: <kbd>\\d\\+</kbd> matches one or more digits'
+            'Regex operators by default - escape to use as literal',
+            'Example: <kbd>\\.</kbd> matches a period',
+            'Everything else is not special and must be escaped to use as a regex operator. For example: <kbd>: + ? { } ( ) | < ></kbd>',
+            'Example: <kbd>\\d\\+</kbd> matches one or more digits',
+            'Example: <kbd>7\|20</kbd> matches 7 or 20'
           ]
         }
       ],
